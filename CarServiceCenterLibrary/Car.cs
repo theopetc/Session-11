@@ -8,11 +8,15 @@ namespace CarServiceCenterLibrary
 {
     public class Car
     {
-        //test
+        public Guid ID { get; set; }
+        public Brands Brand { get; set; }
+        public string Model { get; set; }
+        public string CarRegistrationNumber { get; set; }
+
         public Car()
         {
-
+            ID = Guid.NewGuid();
 
         }
-    }
+    }        
 }
