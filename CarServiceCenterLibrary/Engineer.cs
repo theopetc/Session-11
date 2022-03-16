@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace CarServiceCenterLibrary
 {
-    internal class Engineer
+    public class Engineer : Person
     {
-        public Engineer()
-        {
+        public Guid ManagerID { get; set; }
+        public decimal SallaryPerMonth { get; set; }
 
+        public Engineer(Guid managerID)
+        {
+            ManagerID = managerID;            
         }
     }
 }

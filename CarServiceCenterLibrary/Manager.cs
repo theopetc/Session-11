@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace CarServiceCenterLibrary
 {
-    internal class Manager
+    public class Manager : Person
     {
+        //TODO: SAlary month overloading
+        public decimal SallaryPerMonth { get; set; }
         public Manager()
         {
 
