@@ -26,7 +26,7 @@ namespace Session_11
         }
 
         private void editCustomer_Click(object sender, EventArgs e)
-        {
+        {   
             openF.Open<CustomerForm>();
         }
 

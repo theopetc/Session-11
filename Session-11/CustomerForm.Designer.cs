@@ -34,7 +34,7 @@
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
-            this.grdCustomer = new DevExpress.XtraGrid.GridControl();
+            this.grdCustomers = new DevExpress.XtraGrid.GridControl();
             this.grvCustomers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,11 +46,12 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bsServiceCenter = new System.Windows.Forms.BindingSource(this.components);
+            this.bsCustomers = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -58,8 +59,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -68,7 +70,7 @@
             this.layoutControl1.Controls.Add(this.btnEdit);
             this.layoutControl1.Controls.Add(this.btnDelete);
             this.layoutControl1.Controls.Add(this.btnNew);
-            this.layoutControl1.Controls.Add(this.grdCustomer);
+            this.layoutControl1.Controls.Add(this.grdCustomers);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -118,14 +120,14 @@
             this.btnNew.Text = "New...";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // grdCustomer
+            // grdCustomers
             // 
-            this.grdCustomer.Location = new System.Drawing.Point(12, 12);
-            this.grdCustomer.MainView = this.grvCustomers;
-            this.grdCustomer.Name = "grdCustomer";
-            this.grdCustomer.Size = new System.Drawing.Size(741, 325);
-            this.grdCustomer.TabIndex = 4;
-            this.grdCustomer.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdCustomers.Location = new System.Drawing.Point(12, 12);
+            this.grdCustomers.MainView = this.grvCustomers;
+            this.grdCustomers.Name = "grdCustomers";
+            this.grdCustomers.Size = new System.Drawing.Size(741, 325);
+            this.grdCustomers.TabIndex = 4;
+            this.grdCustomers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvCustomers});
             // 
             // grvCustomers
@@ -135,8 +137,9 @@
             this.colSurname,
             this.colPhone,
             this.colTIN});
-            this.grvCustomers.GridControl = this.grdCustomer;
+            this.grvCustomers.GridControl = this.grdCustomers;
             this.grvCustomers.Name = "grvCustomers";
+            this.grvCustomers.OptionsBehavior.Editable = false;
             // 
             // colName
             // 
@@ -187,7 +190,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.grdCustomer;
+            this.layoutControlItem1.Control = this.grdCustomers;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(745, 329);
@@ -246,9 +249,10 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
+            this.Load += new System.EventHandler(this.CustomerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -256,8 +260,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,19 +274,20 @@
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnNew;
-        private DevExpress.XtraGrid.GridControl grdCustomer;
+        private DevExpress.XtraGrid.GridControl grdCustomers;
         private DevExpress.XtraGrid.Views.Grid.GridView grvCustomers;
-        private DevExpress.XtraGrid.Columns.GridColumn colName;
-        private DevExpress.XtraGrid.Columns.GridColumn colSurname;
-        private DevExpress.XtraGrid.Columns.GridColumn colPhone;
-        private DevExpress.XtraGrid.Columns.GridColumn colTIN;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private BindingSource bsCustomer;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private BindingSource bsServiceCenter;
+        private BindingSource bsCustomers;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colSurname;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhone;
+        private DevExpress.XtraGrid.Columns.GridColumn colTIN;
     }
 }
