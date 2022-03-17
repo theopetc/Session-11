@@ -34,6 +34,11 @@ namespace Session_11
         {
 
         }
+
+        private void editToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            openF.Open<ManagersForm>();
+        }
     }
 
 }

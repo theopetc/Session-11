@@ -17,6 +17,10 @@ namespace Session_11
             var form = new T();
             form.ShowDialog();
         }
+        public T GetForm<T>(params object[] prms) where T : Form
+        {
+             return (T)Activator.CreateInstance(typeof(T),prms);
+        }
         
     }
 }

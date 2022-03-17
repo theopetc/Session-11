@@ -34,10 +34,11 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveClose = new DevExpress.XtraEditors.SimpleButton();
-            this.gridControlManagers = new DevExpress.XtraGrid.GridControl();
-            this.gridViewManagers = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumnManager = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnSurname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdManagers = new DevExpress.XtraGrid.GridControl();
+            this.bsManagers = new System.Windows.Forms.BindingSource(this.components);
+            this.grvManagers = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdColName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnSallary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -45,18 +46,17 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bsManagers = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlManagers)).BeginInit();
             this.layoutControlManagers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlManagers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewManagers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControlManagers
@@ -65,7 +65,7 @@
             this.layoutControlManagers.Controls.Add(this.btnDelete);
             this.layoutControlManagers.Controls.Add(this.btnNew);
             this.layoutControlManagers.Controls.Add(this.btnSaveClose);
-            this.layoutControlManagers.Controls.Add(this.gridControlManagers);
+            this.layoutControlManagers.Controls.Add(this.grdManagers);
             this.layoutControlManagers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControlManagers.Location = new System.Drawing.Point(0, 0);
             this.layoutControlManagers.Name = "layoutControlManagers";
@@ -82,6 +82,7 @@
             this.btnEdit.StyleController = this.layoutControlManagers;
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "EDIT";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -91,6 +92,7 @@
             this.btnDelete.StyleController = this.layoutControlManagers;
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "DELETE";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnNew
             // 
@@ -100,6 +102,7 @@
             this.btnNew.StyleController = this.layoutControlManagers;
             this.btnNew.TabIndex = 6;
             this.btnNew.Text = "NEW";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnSaveClose
             // 
@@ -109,45 +112,57 @@
             this.btnSaveClose.StyleController = this.layoutControlManagers;
             this.btnSaveClose.TabIndex = 5;
             this.btnSaveClose.Text = "SAVE AND CLOSE";
+            this.btnSaveClose.Click += new System.EventHandler(this.btnSaveClose_Click);
             // 
-            // gridControlManagers
+            // grdManagers
             // 
-            this.gridControlManagers.Location = new System.Drawing.Point(12, 12);
-            this.gridControlManagers.MainView = this.gridViewManagers;
-            this.gridControlManagers.Name = "gridControlManagers";
-            this.gridControlManagers.Size = new System.Drawing.Size(738, 500);
-            this.gridControlManagers.TabIndex = 4;
-            this.gridControlManagers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewManagers});
-            this.gridControlManagers.Click += new System.EventHandler(this.gridControlManagers_Click);
+            this.grdManagers.DataSource = this.bsManagers;
+            this.grdManagers.Location = new System.Drawing.Point(12, 12);
+            this.grdManagers.MainView = this.grvManagers;
+            this.grdManagers.Name = "grdManagers";
+            this.grdManagers.Size = new System.Drawing.Size(738, 500);
+            this.grdManagers.TabIndex = 4;
+            this.grdManagers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvManagers});
+            this.grdManagers.Click += new System.EventHandler(this.gridControlManagers_Click);
             // 
-            // gridViewManagers
+            // bsManagers
             // 
-            this.gridViewManagers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumnManager,
-            this.gridColumnSurname,
+            this.bsManagers.DataSource = typeof(CarServiceCenterLibrary.Manager);
+            // 
+            // grvManagers
+            // 
+            this.grvManagers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.grdColName,
+            this.grdColSurname,
             this.gridColumnSallary});
-            this.gridViewManagers.GridControl = this.gridControlManagers;
-            this.gridViewManagers.Name = "gridViewManagers";
+            this.grvManagers.GridControl = this.grdManagers;
+            this.grvManagers.Name = "grvManagers";
             // 
-            // gridColumnManager
+            // grdColName
             // 
-            this.gridColumnManager.Caption = "Name";
-            this.gridColumnManager.Name = "gridColumnManager";
-            this.gridColumnManager.Visible = true;
-            this.gridColumnManager.VisibleIndex = 0;
+            this.grdColName.Caption = "Name";
+            this.grdColName.FieldName = "Name";
+            this.grdColName.Name = "grdColName";
+            this.grdColName.OptionsColumn.AllowEdit = false;
+            this.grdColName.Visible = true;
+            this.grdColName.VisibleIndex = 0;
             // 
-            // gridColumnSurname
+            // grdColSurname
             // 
-            this.gridColumnSurname.Caption = "Surname";
-            this.gridColumnSurname.Name = "gridColumnSurname";
-            this.gridColumnSurname.Visible = true;
-            this.gridColumnSurname.VisibleIndex = 1;
+            this.grdColSurname.Caption = "Surname";
+            this.grdColSurname.FieldName = "Surname";
+            this.grdColSurname.Name = "grdColSurname";
+            this.grdColSurname.OptionsColumn.AllowEdit = false;
+            this.grdColSurname.Visible = true;
+            this.grdColSurname.VisibleIndex = 1;
             // 
             // gridColumnSallary
             // 
             this.gridColumnSallary.Caption = "Sallary Per Month";
+            this.gridColumnSallary.FieldName = "SallaryPerMonth";
             this.gridColumnSallary.Name = "gridColumnSallary";
+            this.gridColumnSallary.OptionsColumn.AllowEdit = false;
             this.gridColumnSallary.Visible = true;
             this.gridColumnSallary.VisibleIndex = 2;
             // 
@@ -167,7 +182,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.gridControlManagers;
+            this.layoutControlItem1.Control = this.grdManagers;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(742, 504);
@@ -218,17 +233,18 @@
             this.Controls.Add(this.layoutControlManagers);
             this.Name = "ManagersForm";
             this.Text = "Managers";
+            this.Load += new System.EventHandler(this.ManagersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlManagers)).EndInit();
             this.layoutControlManagers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlManagers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewManagers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdManagers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvManagers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -236,16 +252,16 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControlManagers;
-        private DevExpress.XtraGrid.GridControl gridControlManagers;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewManagers;
+        private DevExpress.XtraGrid.GridControl grdManagers;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvManagers;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnNew;
         private DevExpress.XtraEditors.SimpleButton btnSaveClose;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnManager;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnSurname;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColName;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColSurname;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnSallary;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
