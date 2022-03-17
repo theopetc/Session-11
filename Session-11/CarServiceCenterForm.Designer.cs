@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCustomer = new System.Windows.Forms.ToolStripMenuItem();
+            this.carToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.staffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.engineerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTrasaction = new System.Windows.Forms.ToolStripMenuItem();
-            this.staffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.engineerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.carToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCustomer = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -62,6 +62,84 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // customerToolStripMenuItem
+            // 
+            this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editCustomer});
+            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.customerToolStripMenuItem.Text = "Customer";
+            // 
+            // editCustomer
+            // 
+            this.editCustomer.Name = "editCustomer";
+            this.editCustomer.Size = new System.Drawing.Size(180, 22);
+            this.editCustomer.Text = "Edit...";
+            this.editCustomer.Click += new System.EventHandler(this.editCustomer_Click);
+            // 
+            // carToolStripMenuItem
+            // 
+            this.carToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem1});
+            this.carToolStripMenuItem.Name = "carToolStripMenuItem";
+            this.carToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.carToolStripMenuItem.Text = "Car";
+            // 
+            // editToolStripMenuItem1
+            // 
+            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem1.Text = "Edit...";
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
+            // 
+            // staffToolStripMenuItem
+            // 
+            this.staffToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem2});
+            this.staffToolStripMenuItem.Name = "staffToolStripMenuItem";
+            this.staffToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.staffToolStripMenuItem.Text = "Manager";
+            // 
+            // editToolStripMenuItem2
+            // 
+            this.editToolStripMenuItem2.Name = "editToolStripMenuItem2";
+            this.editToolStripMenuItem2.Size = new System.Drawing.Size(103, 22);
+            this.editToolStripMenuItem2.Text = "Edit...";
+            // 
+            // engineerToolStripMenuItem
+            // 
+            this.engineerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem3});
+            this.engineerToolStripMenuItem.Name = "engineerToolStripMenuItem";
+            this.engineerToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.engineerToolStripMenuItem.Text = "Engineer";
+            // 
+            // editToolStripMenuItem3
+            // 
+            this.editToolStripMenuItem3.Name = "editToolStripMenuItem3";
+            this.editToolStripMenuItem3.Size = new System.Drawing.Size(100, 22);
+            this.editToolStripMenuItem3.Text = "Edit..";
+            // 
+            // transactionToolStripMenuItem
+            // 
+            this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newTrasaction});
+            this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.transactionToolStripMenuItem.Text = "Transaction";
+            // 
+            // newTrasaction
+            // 
+            this.newTrasaction.Name = "newTrasaction";
+            this.newTrasaction.Size = new System.Drawing.Size(103, 22);
+            this.newTrasaction.Text = "Edit...";
+            // 
+            // monthlyLedgerToolStripMenuItem
+            // 
+            this.monthlyLedgerToolStripMenuItem.Name = "monthlyLedgerToolStripMenuItem";
+            this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.monthlyLedgerToolStripMenuItem.Text = "Monthly Ledger";
+            // 
             // layoutControl1
             // 
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -79,82 +157,6 @@
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(765, 345);
             this.Root.TextVisible = false;
-            // 
-            // transactionToolStripMenuItem
-            // 
-            this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newTrasaction});
-            this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.transactionToolStripMenuItem.Text = "Transaction";
-            // 
-            // newTrasaction
-            // 
-            this.newTrasaction.Name = "newTrasaction";
-            this.newTrasaction.Size = new System.Drawing.Size(103, 22);
-            this.newTrasaction.Text = "Edit...";
-            // 
-            // staffToolStripMenuItem
-            // 
-            this.staffToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem2});
-            this.staffToolStripMenuItem.Name = "staffToolStripMenuItem";
-            this.staffToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.staffToolStripMenuItem.Text = "Manager";
-            // 
-            // monthlyLedgerToolStripMenuItem
-            // 
-            this.monthlyLedgerToolStripMenuItem.Name = "monthlyLedgerToolStripMenuItem";
-            this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
-            this.monthlyLedgerToolStripMenuItem.Text = "Monthly Ledger";
-            // 
-            // engineerToolStripMenuItem
-            // 
-            this.engineerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem3});
-            this.engineerToolStripMenuItem.Name = "engineerToolStripMenuItem";
-            this.engineerToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.engineerToolStripMenuItem.Text = "Engineer";
-            // 
-            // customerToolStripMenuItem
-            // 
-            this.customerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editCustomer});
-            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.customerToolStripMenuItem.Text = "Customer";
-            // 
-            // carToolStripMenuItem
-            // 
-            this.carToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem1});
-            this.carToolStripMenuItem.Name = "carToolStripMenuItem";
-            this.carToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.carToolStripMenuItem.Text = "Car";
-            // 
-            // editCustomer
-            // 
-            this.editCustomer.Name = "editCustomer";
-            this.editCustomer.Size = new System.Drawing.Size(180, 22);
-            this.editCustomer.Text = "Edit...";
-            // 
-            // editToolStripMenuItem1
-            // 
-            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.editToolStripMenuItem1.Text = "Edit...";
-            // 
-            // editToolStripMenuItem2
-            // 
-            this.editToolStripMenuItem2.Name = "editToolStripMenuItem2";
-            this.editToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.editToolStripMenuItem2.Text = "Edit...";
-            // 
-            // editToolStripMenuItem3
-            // 
-            this.editToolStripMenuItem3.Name = "editToolStripMenuItem3";
-            this.editToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.editToolStripMenuItem3.Text = "Edit..";
             // 
             // CarServiceCenterForm
             // 

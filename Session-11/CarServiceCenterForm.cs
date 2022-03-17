@@ -11,8 +11,10 @@ using DevExpress.XtraEditors;
 
 namespace Session_11
 {
-    public partial class CarServiceCenterForm : DevExpress.XtraEditors.XtraForm
+
+    public partial class CarServiceCenterForm : DevExpress.XtraEditors.XtraForm 
     {
+        OpenForm openF = new OpenForm();
         public CarServiceCenterForm()
         {
             InitializeComponent();
@@ -22,5 +24,16 @@ namespace Session_11
         {
 
         }
+
+        private void editCustomer_Click(object sender, EventArgs e)
+        {
+            openF.Open<CustomerForm>();
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }
