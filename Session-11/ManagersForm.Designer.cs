@@ -28,32 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControlManagers = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnNew = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSaveClose = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlManagers = new DevExpress.XtraGrid.GridControl();
             this.gridViewManagers = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridColumnManager = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnSallary = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnSaveClose = new DevExpress.XtraEditors.SimpleButton();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bsManagers = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlManagers)).BeginInit();
             this.layoutControlManagers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewManagers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControlManagers
@@ -71,19 +74,41 @@
             this.layoutControlManagers.TabIndex = 0;
             this.layoutControlManagers.Text = "layoutControl1";
             // 
-            // Root
+            // btnEdit
             // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(762, 550);
-            this.Root.TextVisible = false;
+            this.btnEdit.Location = new System.Drawing.Point(203, 516);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(203, 22);
+            this.btnEdit.StyleController = this.layoutControlManagers;
+            this.btnEdit.TabIndex = 8;
+            this.btnEdit.Text = "EDIT";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(410, 516);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(177, 22);
+            this.btnDelete.StyleController = this.layoutControlManagers;
+            this.btnDelete.TabIndex = 7;
+            this.btnDelete.Text = "DELETE";
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(12, 516);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(187, 22);
+            this.btnNew.StyleController = this.layoutControlManagers;
+            this.btnNew.TabIndex = 6;
+            this.btnNew.Text = "NEW";
+            // 
+            // btnSaveClose
+            // 
+            this.btnSaveClose.Location = new System.Drawing.Point(591, 516);
+            this.btnSaveClose.Name = "btnSaveClose";
+            this.btnSaveClose.Size = new System.Drawing.Size(159, 22);
+            this.btnSaveClose.StyleController = this.layoutControlManagers;
+            this.btnSaveClose.TabIndex = 5;
+            this.btnSaveClose.Text = "SAVE AND CLOSE";
             // 
             // gridControlManagers
             // 
@@ -94,6 +119,7 @@
             this.gridControlManagers.TabIndex = 4;
             this.gridControlManagers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewManagers});
+            this.gridControlManagers.Click += new System.EventHandler(this.gridControlManagers_Click);
             // 
             // gridViewManagers
             // 
@@ -103,15 +129,6 @@
             this.gridColumnSallary});
             this.gridViewManagers.GridControl = this.gridControlManagers;
             this.gridViewManagers.Name = "gridViewManagers";
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gridControlManagers;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(742, 504);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // gridColumnManager
             // 
@@ -134,14 +151,28 @@
             this.gridColumnSallary.Visible = true;
             this.gridColumnSallary.VisibleIndex = 2;
             // 
-            // btnSaveClose
+            // Root
             // 
-            this.btnSaveClose.Location = new System.Drawing.Point(591, 516);
-            this.btnSaveClose.Name = "btnSaveClose";
-            this.btnSaveClose.Size = new System.Drawing.Size(159, 22);
-            this.btnSaveClose.StyleController = this.layoutControlManagers;
-            this.btnSaveClose.TabIndex = 5;
-            this.btnSaveClose.Text = "SAVE AND CLOSE";
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(762, 550);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gridControlManagers;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(742, 504);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
@@ -152,15 +183,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(12, 516);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(187, 22);
-            this.btnNew.StyleController = this.layoutControlManagers;
-            this.btnNew.TabIndex = 6;
-            this.btnNew.Text = "NEW";
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnNew;
@@ -169,15 +191,6 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(191, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(410, 516);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(177, 22);
-            this.btnDelete.StyleController = this.layoutControlManagers;
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "DELETE";
             // 
             // layoutControlItem4
             // 
@@ -188,15 +201,6 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(203, 516);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(203, 22);
-            this.btnEdit.StyleController = this.layoutControlManagers;
-            this.btnEdit.TabIndex = 8;
-            this.btnEdit.Text = "EDIT";
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnEdit;
@@ -206,24 +210,25 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // ManagerForm
+            // ManagersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 550);
             this.Controls.Add(this.layoutControlManagers);
-            this.Name = "ManagerForm";
+            this.Name = "ManagersForm";
             this.Text = "Managers";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlManagers)).EndInit();
             this.layoutControlManagers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlManagers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewManagers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,5 +251,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private BindingSource bsManagers;
     }
 }

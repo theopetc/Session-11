@@ -17,5 +17,12 @@ namespace Session_11
         {
             InitializeComponent();
         }
-    }
+
+        private void gridControlManagers_Click(object sender, EventArgs e)
+        {
+
+            //bsManagers.DataSource =  
+        }
+
+        
 }
