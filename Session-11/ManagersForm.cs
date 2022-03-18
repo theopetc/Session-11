@@ -27,8 +27,6 @@ namespace Session_11
         {
             serviceCenter = storageService.GetSeviceCenter();
             bsManagers.DataSource = serviceCenter.Managers;
-
-
         }
 
         private void gridControlManagers_Click(object sender, EventArgs e)

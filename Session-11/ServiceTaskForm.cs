@@ -12,15 +12,15 @@ using System.Text.Json;
 using System.IO;
 using CarServiceCenterLibrary;
 using DevExpress.XtraGrid;
-
+using Services;
 
 namespace Session_11
 {
     public partial class ServiceTaskForm : DevExpress.XtraEditors.XtraForm
     {
-        OpenForm open = new OpenForm();
-        private const string FILE_NAME = "storage.json";
-        private string item = "customers";
+        OpenForm openF = new OpenForm();
+        ServiceCenter serviceCenter;
+        public readonly StorageService storageService = new StorageService();
         public ServiceTaskForm()
         {
             InitializeComponent();
@@ -28,7 +28,8 @@ namespace Session_11
         #region UI
         private void ServiceTaskForm_Load(object sender, EventArgs e)
         {
-            open.PopulateServices(FILE_NAME, bsServiceCenter, bsServiceTasks, grdServiceTasks, item);
+            serviceCenter = storageService.GetSeviceCenter();
+            bsServiceTasks.DataSource = serviceCenter.ServiceTasks;
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -47,53 +48,54 @@ namespace Session_11
         {
             this.Close();
         }
+        private void grdServiceTasks_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
         private void NewData()
         {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
-
-            ServiceTaskF serviceTaskForm = new ServiceTaskF(serviceCenter);
-            serviceTaskForm.ShowDialog();
+            var serviceTask = new ServiceTask();
+            var editForm = openF.GetForm<ServiceTaskF>(State.New, serviceTask, bsServiceTasks);
+            serviceCenter.ServiceTasks = bsServiceTasks.DataSource as List<ServiceTask>;
+            storageService.SaveServiceCenter(serviceCenter);
+            editForm.ShowDialog();
             grvServiceTasks.RefreshData();
         }
         private void DeleteData()
         {
-            var res = MessageBox.Show(this, "Are you sure you want to delete the selected Student?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res != DialogResult.Yes)
-                return;
-            var serviceTask = bsServiceTasks.Current as ServiceTask;
-            bsServiceTasks.Remove(serviceTask);
-            SaveData<ServiceTaskF>();
+            var result = MessageBox.Show("Are you sure that you want to delete this Service Task?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var selectedServiceTask = GetSelectedServiceTask();
+                ((List<ServiceTask>)bsServiceTasks.DataSource).Remove(selectedServiceTask);
+                grvServiceTasks.RefreshData();
+            }
         }
-        private void SaveData<T>() where T : Form, new()
-        {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
-            string json = JsonSerializer.Serialize(serviceCenter);
-            File.WriteAllText(FILE_NAME, json);
-        }
-
         private void EditData()
         {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+            var customer = GetSelectedServiceTask();
+            if (customer != null)
+            {
+                var editForm = openF.GetForm<ServiceTaskF>(State.Edit, customer, bsServiceTasks);
+                editForm.ShowDialog();
+                grvServiceTasks.RefreshData();
 
-            var serviceTask = bsServiceTasks.Current as ServiceTask;
-
-            ServiceTaskF serviceTaskForm = new ServiceTaskF(serviceCenter, serviceTask);
-            serviceTaskForm.ShowDialog();
-            grvServiceTasks.RefreshData();
+            }
         }
-        //private void PopulateServices()
-        //{
-        //    string s = File.ReadAllText(FILE_NAME);
-        //    var serviceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
+        private ServiceTask? GetSelectedServiceTask()
+        {
 
-        //    bsServiceCenter.DataSource = serviceCenter;
-
-        //    bsServiceTasks.DataSource = bsServiceCenter;
-        //    //bsServiceTasks.DataMember = "ServiceTasks";
-
-        //    grdServiceTasks.DataSource = bsServiceTasks;
-        //}
+            var selectedIndexes = grvServiceTasks.GetSelectedRows();
+            if (selectedIndexes is not null)
+            {
+                return grvServiceTasks.GetRow(selectedIndexes[0]) as ServiceTask;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
 
     }

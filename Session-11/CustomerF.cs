@@ -11,32 +11,37 @@ using DevExpress.XtraEditors;
 using CarServiceCenterLibrary;
 using System.IO;
 using System.Text.Json;
+using Services;
 
 namespace Session_11
 {
     public partial class CustomerF : DevExpress.XtraEditors.XtraForm
     {
-        private const string FILE_NAME = "Customer.json";
-        private Customer _customer;
-        private ServiceCenter _serviceCenter;
-        public CustomerF()
+        Customer _customer;
+        State _state;
+        BindingSource _bindingSource;
+        public CustomerF(State state, Customer customer, BindingSource bindingSource)
         {
-            InitializeComponent();
             
-        }
-        public CustomerF(ServiceCenter serviceCenter)
-        {
+            _state = state;
+            _bindingSource = bindingSource;
+            _customer = new Customer()
+            {
+                ID = customer.ID,
+                Name = customer.Name,
+                Surname = customer.Surname,
+                Phone = customer.Phone,
+                TIN = customer.TIN
+            };
             InitializeComponent();
-            _serviceCenter = serviceCenter;
-        }
-        public CustomerF(ServiceCenter serviceCenter, Customer customer) : this(serviceCenter)
-        {
-            _customer = customer;
+
+
         }
 
         private void CustomerF_Load(object sender, EventArgs e)
         {
-            LoadCustomer();
+            bsCustomers.DataSource = _customer;
+            SetDataBindings();
         }
         private void SetDataBindings()
         {
@@ -49,34 +54,30 @@ namespace Session_11
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string json = JsonSerializer.Serialize(_serviceCenter);
-            File.WriteAllText(FILE_NAME, json);
-            DialogResult = DialogResult.OK;
+            
+            SaveCustomer();
+            this.Close();
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void LoadCustomer()
+        private void SaveCustomer()
         {
-            if (_customer == null)
+            if (_state == State.New)
             {
-                _customer = new Customer();
-                _serviceCenter.Customers.Add(_customer);
-                bsCustomers.DataSource = _customer;
+                ((List<Customer>)_bindingSource.DataSource).Add(_customer);
+
+            }
+            else
+            {
+                var editedItemIndex = ((List<Customer>)_bindingSource.DataSource).FindIndex(x => x.ID == _customer.ID);
+                ((List<Customer>)_bindingSource.DataSource)[editedItemIndex] = _customer;
             }
 
-            bsCustomers.DataSource = _customer;
-
-            //TODO Customer multiple task services
-
-            //bsCourses.DataSource = bsStudents;
-            //bsCourses.DataMember = "Courses";
-            //grdCourses.DataSource = bsCourses;
-
-            SetDataBindings();
         }
-        
+
     }
 }

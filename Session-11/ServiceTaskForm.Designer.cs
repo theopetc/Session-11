@@ -30,43 +30,44 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.grdServiceTasks = new DevExpress.XtraGrid.GridControl();
+            this.grvServiceTasks = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHours = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
-            this.grdServiceTasks = new DevExpress.XtraGrid.GridControl();
-            this.grvServiceTasks = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bsServiceTasks = new System.Windows.Forms.BindingSource(this.components);
-            this.bsServiceCenter = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdServiceTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvServiceTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.grdServiceTasks);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.btnEdit);
             this.layoutControl1.Controls.Add(this.btnDelete);
             this.layoutControl1.Controls.Add(this.btnNew);
-            this.layoutControl1.Controls.Add(this.grdServiceTasks);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -75,6 +76,52 @@
             this.layoutControl1.Size = new System.Drawing.Size(765, 369);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // grdServiceTasks
+            // 
+            this.grdServiceTasks.DataSource = this.bsServiceTasks;
+            this.grdServiceTasks.Location = new System.Drawing.Point(12, 12);
+            this.grdServiceTasks.MainView = this.grvServiceTasks;
+            this.grdServiceTasks.Name = "grdServiceTasks";
+            this.grdServiceTasks.Size = new System.Drawing.Size(741, 319);
+            this.grdServiceTasks.TabIndex = 9;
+            this.grdServiceTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvServiceTasks});
+            this.grdServiceTasks.Click += new System.EventHandler(this.grdServiceTasks_Click);
+            // 
+            // grvServiceTasks
+            // 
+            this.grvServiceTasks.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCode,
+            this.colDescription,
+            this.colHours});
+            this.grvServiceTasks.GridControl = this.grdServiceTasks;
+            this.grvServiceTasks.Name = "grvServiceTasks";
+            this.grvServiceTasks.OptionsBehavior.Editable = false;
+            // 
+            // colCode
+            // 
+            this.colCode.Caption = "Code";
+            this.colCode.FieldName = "Code";
+            this.colCode.Name = "colCode";
+            this.colCode.Visible = true;
+            this.colCode.VisibleIndex = 0;
+            // 
+            // colDescription
+            // 
+            this.colDescription.Caption = "Description";
+            this.colDescription.FieldName = "Description";
+            this.colDescription.Name = "colDescription";
+            this.colDescription.Visible = true;
+            this.colDescription.VisibleIndex = 1;
+            // 
+            // colHours
+            // 
+            this.colHours.Caption = "Hours";
+            this.colHours.FieldName = "Hours";
+            this.colHours.Name = "colHours";
+            this.colHours.Visible = true;
+            this.colHours.VisibleIndex = 2;
             // 
             // btnCancel
             // 
@@ -116,45 +163,20 @@
             this.btnNew.Text = "New...";
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // grdServiceTasks
-            // 
-            this.grdServiceTasks.Location = new System.Drawing.Point(12, 12);
-            this.grdServiceTasks.MainView = this.grvServiceTasks;
-            this.grdServiceTasks.Name = "grdServiceTasks";
-            this.grdServiceTasks.Size = new System.Drawing.Size(741, 319);
-            this.grdServiceTasks.TabIndex = 4;
-            this.grdServiceTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvServiceTasks});
-            // 
-            // grvServiceTasks
-            // 
-            this.grvServiceTasks.GridControl = this.grdServiceTasks;
-            this.grvServiceTasks.Name = "grvServiceTasks";
-            this.grvServiceTasks.OptionsBehavior.Editable = false;
-            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem5,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem1});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(765, 369);
             this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.grdServiceTasks;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(745, 323);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
@@ -200,6 +222,19 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(421, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.grdServiceTasks;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(745, 323);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // bsServiceTasks
+            // 
+            this.bsServiceTasks.DataSource = typeof(CarServiceCenterLibrary.ServiceTask);
+            // 
             // ServiceTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,14 +249,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdServiceTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvServiceTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,16 +267,18 @@
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnNew;
-        private DevExpress.XtraGrid.GridControl grdServiceTasks;
-        private DevExpress.XtraGrid.Views.Grid.GridView grvServiceTasks;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraGrid.GridControl grdServiceTasks;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvServiceTasks;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn colHours;
         private BindingSource bsServiceTasks;
-        private BindingSource bsServiceCenter;
     }
 }

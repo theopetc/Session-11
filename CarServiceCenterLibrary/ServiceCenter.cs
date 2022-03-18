@@ -1,4 +1,5 @@
-﻿using CarServiceCenterLibrary;
+﻿using System.ComponentModel;
+using CarServiceCenterLibrary;
 
 namespace Session_11
 {
@@ -15,14 +16,9 @@ namespace Session_11
             {
                 new Car()
             };
-            Customers = new List<Customer>()
-            {
-                new Customer()
-            };
-            ServiceTasks = new List<ServiceTask>()
-            {
-                new ServiceTask()
-            };
+            Customers = new List<Customer>();
+
+            ServiceTasks = new List<ServiceTask>();
             Managers = new List<Manager>();
         }
     }

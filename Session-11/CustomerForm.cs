@@ -11,14 +11,16 @@ using DevExpress.XtraEditors;
 using CarServiceCenterLibrary;
 using System.Text.Json;
 using System.IO;
+using Services;
 
 namespace Session_11
 {
     public partial class CustomerForm : DevExpress.XtraEditors.XtraForm
     {
-        private const string FILE_NAME = "storage.json";
-        
-        
+        OpenForm openF = new OpenForm();
+        ServiceCenter serviceCenter;
+        public readonly StorageService storageService = new StorageService();
+ 
         public CustomerForm()
         {
             InitializeComponent();
@@ -26,7 +28,8 @@ namespace Session_11
         }
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-            PopulateCustomers();
+            serviceCenter = storageService.GetSeviceCenter();
+            bsCustomers.DataSource = serviceCenter.Customers;
         }
         #region UI Controls
         private void btnNew_Click(object sender, EventArgs e)
@@ -45,55 +48,56 @@ namespace Session_11
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            serviceCenter.Customers = bsCustomers.DataSource as List<Customer>;
+            storageService.SaveServiceCenter(serviceCenter);
             this.Close();
         }
         #endregion
-        private void SaveData<T>() where T : Form, new()
-        {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
-            string json = JsonSerializer.Serialize(serviceCenter);
-            File.WriteAllText(FILE_NAME, json);
-        }
-
-        private void PopulateCustomers()
-        {
-            string s = File.ReadAllText(FILE_NAME);
-            var serviceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
-
-            bsServiceCenter.DataSource = serviceCenter;
-
-            bsCustomers.DataSource = bsServiceCenter;
-            bsCustomers.DataMember = "Customers";
-
-            grdCustomers.DataSource = bsCustomers;
-        }
         private void EditData()
         {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+            var customer = GetSelectedCustomer();
+            if (customer != null)
+            {
+                var editForm = openF.GetForm<CustomerF>(State.Edit, customer, bsCustomers);
+                editForm.ShowDialog();
+                grvCustomers.RefreshData();
 
-            var customer = bsCustomers.Current as Customer;
-
-            CustomerF customerForm = new CustomerF(serviceCenter, customer);
-            customerForm.ShowDialog();
-            grvCustomers.RefreshData();
+            }
         }
         private void DeleteData()
         {
-            var res = MessageBox.Show(this, "Are you sure you want to delete the selected Student?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res != DialogResult.Yes)
-                return;
-            var customer = bsCustomers.Current as Customer;
-            bsCustomers.Remove(customer);
-            SaveData<CustomerF>();
+            var result = MessageBox.Show("Are you sure that you want to delete this Customer?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var selectedCustomer = GetSelectedCustomer();
+                ((List<Customer>)bsCustomers.DataSource).Remove(selectedCustomer);
+                grvCustomers.RefreshData();
+            }
         }
         private void NewData()
         {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+            var customer = new Customer();
+            var editForm = openF.GetForm<CustomerF>(State.New, customer, bsCustomers);
+            serviceCenter.Customers = bsCustomers.DataSource as List<Customer>;
+            storageService.SaveServiceCenter(serviceCenter);
+            editForm.ShowDialog();
 
-            CustomerF customerForm = new CustomerF(serviceCenter);
-            customerForm.ShowDialog();
             grvCustomers.RefreshData();
         }
+        private Customer? GetSelectedCustomer()
+        {
+
+            var selectedIndexes = grvCustomers.GetSelectedRows();
+            if (selectedIndexes is not null)
+            {
+                return grvCustomers.GetRow(selectedIndexes[0]) as Customer;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
+
 
 }

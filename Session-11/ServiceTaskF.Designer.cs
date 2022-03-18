@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.ctrlHours = new DevExpress.XtraEditors.SpinEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -43,14 +44,14 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bsServiceTasks = new System.Windows.Forms.BindingSource(this.components);
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.ctrlHours = new DevExpress.XtraEditors.SpinEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bsServiceTasks = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlHours.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCode.Properties)).BeginInit();
@@ -62,12 +63,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlHours.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -86,6 +86,21 @@
             this.layoutControl1.Size = new System.Drawing.Size(765, 369);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // ctrlHours
+            // 
+            this.ctrlHours.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.ctrlHours.Location = new System.Drawing.Point(77, 60);
+            this.ctrlHours.Name = "ctrlHours";
+            this.ctrlHours.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlHours.Size = new System.Drawing.Size(62, 20);
+            this.ctrlHours.StyleController = this.layoutControl1;
+            this.ctrlHours.TabIndex = 3;
             // 
             // btnCancel
             // 
@@ -234,21 +249,6 @@
             this.emptySpaceItem4.Size = new System.Drawing.Size(614, 24);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // ctrlHours
-            // 
-            this.ctrlHours.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.ctrlHours.Location = new System.Drawing.Point(77, 60);
-            this.ctrlHours.Name = "ctrlHours";
-            this.ctrlHours.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ctrlHours.Size = new System.Drawing.Size(62, 20);
-            this.ctrlHours.StyleController = this.layoutControl1;
-            this.ctrlHours.TabIndex = 3;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.ctrlHours;
@@ -269,6 +269,7 @@
             this.Load += new System.EventHandler(this.ServiceTaskF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlHours.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCode.Properties)).EndInit();
@@ -280,12 +281,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlHours.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -63,6 +63,11 @@ namespace Session_11
             string json = JsonSerializer.Serialize(serviceCenter);
             File.WriteAllText(FILE_NAME, json);
         }
+
+        private void CarForm_Load(object sender, EventArgs e)
+        {
+
+        }
         //private void PopulateCustomers()
         //{
         //    string s = File.ReadAllText(FILE_NAME);
