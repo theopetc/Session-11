@@ -14,6 +14,7 @@ namespace CarServiceCenterLibrary
         public Guid CarID { get; set; }
         public Guid ManagerID { get; set; }
         public decimal TotalPrice { get; set; }
+        public List<TransactionLine> TransactionLines { get; set; }
         public Transaction(Guid customerID, Guid carID, Guid managerID)
         {            
             ID = Guid.NewGuid();

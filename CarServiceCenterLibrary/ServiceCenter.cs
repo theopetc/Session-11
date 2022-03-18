@@ -10,16 +10,15 @@ namespace Session_11
         public List<Car> Cars { get; set; }
         public List<ServiceTask> ServiceTasks { get; set; }
         public List<Manager> Managers { get; set; }
+        public List<Transaction> Transactions { get; set; }
+
         public ServiceCenter()
         {
-            Cars = new List<Car>()
-            {
-                new Car()
-            };
+            Cars = new List<Car>();
             Customers = new List<Customer>();
-
             ServiceTasks = new List<ServiceTask>();
             Managers = new List<Manager>();
+            Transactions = new List<Transaction>();
         }
     }
 }
