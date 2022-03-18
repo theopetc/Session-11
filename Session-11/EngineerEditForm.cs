@@ -63,7 +63,7 @@ namespace Session_11
         {
             ctrlName.DataBindings.Add(new Binding("EditValue", bsEngineers, "Name", true));
             ctrlSurname.DataBindings.Add(new Binding("EditValue", bsEngineers, "Surname", true));
-            ctrlManagerID.DataBindings.Add(new Binding("EditValue", bsEngineers, "ManagerID", true));
+            //ctrlManager.DataBindings.Add(new Binding("EditValue", bsEngineers, "ManagerID", true));
             ctrlSallary.DataBindings.Add(new Binding("EditValue", bsEngineers, "SallaryPerMonth", true));
         }
 

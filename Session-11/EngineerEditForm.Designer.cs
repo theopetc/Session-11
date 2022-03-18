@@ -33,41 +33,41 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.ctrlSallary = new DevExpress.XtraEditors.TextEdit();
-            this.ctrlManagerID = new DevExpress.XtraEditors.TextEdit();
             this.ctrlSurname = new DevExpress.XtraEditors.TextEdit();
             this.ctrlName = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Name = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.bsEngineers = new System.Windows.Forms.BindingSource(this.components);
+            this.ctrlManager = new DevExpress.XtraEditors.LookUpEdit();
+            this.Manager = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSallary.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlManagerID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Name)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEngineers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Manager)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.ctrlManager);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.btnSave);
             this.layoutControl1.Controls.Add(this.ctrlSallary);
-            this.layoutControl1.Controls.Add(this.ctrlManagerID);
             this.layoutControl1.Controls.Add(this.ctrlSurname);
             this.layoutControl1.Controls.Add(this.ctrlName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -100,33 +100,25 @@
             // 
             // ctrlSallary
             // 
-            this.ctrlSallary.Location = new System.Drawing.Point(80, 84);
+            this.ctrlSallary.Location = new System.Drawing.Point(66, 60);
             this.ctrlSallary.Name = "ctrlSallary";
-            this.ctrlSallary.Size = new System.Drawing.Size(412, 20);
+            this.ctrlSallary.Size = new System.Drawing.Size(426, 20);
             this.ctrlSallary.StyleController = this.layoutControl1;
             this.ctrlSallary.TabIndex = 8;
             // 
-            // ctrlManagerID
-            // 
-            this.ctrlManagerID.Location = new System.Drawing.Point(80, 60);
-            this.ctrlManagerID.Name = "ctrlManagerID";
-            this.ctrlManagerID.Size = new System.Drawing.Size(412, 20);
-            this.ctrlManagerID.StyleController = this.layoutControl1;
-            this.ctrlManagerID.TabIndex = 7;
-            // 
             // ctrlSurname
             // 
-            this.ctrlSurname.Location = new System.Drawing.Point(80, 36);
+            this.ctrlSurname.Location = new System.Drawing.Point(66, 36);
             this.ctrlSurname.Name = "ctrlSurname";
-            this.ctrlSurname.Size = new System.Drawing.Size(412, 20);
+            this.ctrlSurname.Size = new System.Drawing.Size(426, 20);
             this.ctrlSurname.StyleController = this.layoutControl1;
             this.ctrlSurname.TabIndex = 6;
             // 
             // ctrlName
             // 
-            this.ctrlName.Location = new System.Drawing.Point(80, 12);
+            this.ctrlName.Location = new System.Drawing.Point(66, 12);
             this.ctrlName.Name = "ctrlName";
-            this.ctrlName.Size = new System.Drawing.Size(412, 20);
+            this.ctrlName.Size = new System.Drawing.Size(426, 20);
             this.ctrlName.StyleController = this.layoutControl1;
             this.ctrlName.TabIndex = 4;
             // 
@@ -138,10 +130,10 @@
             this.Name,
             this.emptySpaceItem1,
             this.layoutControlItem3,
-            this.layoutControlItem4,
             this.layoutControlItem5,
             this.layoutControlItem1,
-            this.layoutControlItem2});
+            this.layoutControlItem2,
+            this.Manager});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(504, 420);
             this.Root.TextVisible = false;
@@ -152,7 +144,7 @@
             this.Name.Location = new System.Drawing.Point(0, 0);
             this.Name.Name = "Name";
             this.Name.Size = new System.Drawing.Size(484, 24);
-            this.Name.TextSize = new System.Drawing.Size(56, 13);
+            this.Name.TextSize = new System.Drawing.Size(42, 13);
             // 
             // emptySpaceItem1
             // 
@@ -169,25 +161,16 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(484, 24);
             this.layoutControlItem3.Text = "Surname";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(56, 13);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.ctrlManagerID;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(484, 24);
-            this.layoutControlItem4.Text = "Manager ID";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(56, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(42, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.ctrlSallary;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(484, 24);
             this.layoutControlItem5.Text = "Sallary";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(56, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(42, 13);
             // 
             // layoutControlItem1
             // 
@@ -207,6 +190,25 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
+            // ctrlManager
+            // 
+            this.ctrlManager.Location = new System.Drawing.Point(66, 84);
+            this.ctrlManager.Name = "ctrlManager";
+            this.ctrlManager.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlManager.Size = new System.Drawing.Size(426, 20);
+            this.ctrlManager.StyleController = this.layoutControl1;
+            this.ctrlManager.TabIndex = 11;
+            // 
+            // Manager
+            // 
+            this.Manager.Control = this.ctrlManager;
+            this.Manager.CustomizationFormText = "Manager";
+            this.Manager.Location = new System.Drawing.Point(0, 72);
+            this.Manager.Name = "Manager";
+            this.Manager.Size = new System.Drawing.Size(484, 24);
+            this.Manager.TextSize = new System.Drawing.Size(42, 13);
+            // 
             // EngineerEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,18 +221,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSallary.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlManagerID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Name)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEngineers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Manager)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,19 +241,19 @@
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraEditors.TextEdit ctrlSallary;
-        private DevExpress.XtraEditors.TextEdit ctrlManagerID;
         private DevExpress.XtraEditors.TextEdit ctrlSurname;
         private DevExpress.XtraEditors.TextEdit ctrlName;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem Name;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private BindingSource bsEngineers;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.LookUpEdit ctrlManager;
+        private DevExpress.XtraLayout.LayoutControlItem Manager;
     }
 }

@@ -41,9 +41,7 @@
             this.newTrasaction = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.serviceTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editServiceTask = new System.Windows.Forms.ToolStripMenuItem();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();                        
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -55,8 +53,7 @@
             this.customerToolStripMenuItem,
             this.carToolStripMenuItem,
             this.staffToolStripMenuItem,
-            this.engineerToolStripMenuItem,
-            this.serviceTaskToolStripMenuItem,
+            this.engineerToolStripMenuItem,            
             this.transactionToolStripMenuItem,
             this.monthlyLedgerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -163,19 +160,10 @@
             this.Root.TextVisible = false;
             // 
             // serviceTaskToolStripMenuItem
-            // 
-            this.serviceTaskToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editServiceTask});
-            this.serviceTaskToolStripMenuItem.Name = "serviceTaskToolStripMenuItem";
-            this.serviceTaskToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.serviceTaskToolStripMenuItem.Text = "Service Task";
+            //             
             // 
             // editServiceTask
-            // 
-            this.editServiceTask.Name = "editServiceTask";
-            this.editServiceTask.Size = new System.Drawing.Size(180, 22);
-            this.editServiceTask.Text = "Edit...";
-            this.editServiceTask.Click += new System.EventHandler(this.editServiceTask_Click);
+            //          
             // 
             // CarServiceCenterForm
             // 
