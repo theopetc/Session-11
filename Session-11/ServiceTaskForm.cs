@@ -11,12 +11,16 @@ using DevExpress.XtraEditors;
 using System.Text.Json;
 using System.IO;
 using CarServiceCenterLibrary;
+using DevExpress.XtraGrid;
+
 
 namespace Session_11
 {
     public partial class ServiceTaskForm : DevExpress.XtraEditors.XtraForm
     {
+        OpenForm open = new OpenForm();
         private const string FILE_NAME = "storage.json";
+        private string item = "customers";
         public ServiceTaskForm()
         {
             InitializeComponent();
@@ -24,7 +28,7 @@ namespace Session_11
         #region UI
         private void ServiceTaskForm_Load(object sender, EventArgs e)
         {
-            PopulateServices();
+            open.PopulateServices(FILE_NAME, bsServiceCenter, bsServiceTasks, grdServiceTasks, item);
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -78,18 +82,18 @@ namespace Session_11
             serviceTaskForm.ShowDialog();
             grvServiceTasks.RefreshData();
         }
-        private void PopulateServices()
-        {
-            string s = File.ReadAllText(FILE_NAME);
-            var serviceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
+        //private void PopulateServices()
+        //{
+        //    string s = File.ReadAllText(FILE_NAME);
+        //    var serviceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
 
-            bsServiceCenter.DataSource = serviceCenter;
+        //    bsServiceCenter.DataSource = serviceCenter;
 
-            bsServiceTasks.DataSource = bsServiceCenter;
-            //bsServiceTasks.DataMember = "ServiceTasks";
+        //    bsServiceTasks.DataSource = bsServiceCenter;
+        //    //bsServiceTasks.DataMember = "ServiceTasks";
 
-            grdServiceTasks.DataSource = bsServiceTasks;
-        }
+        //    grdServiceTasks.DataSource = bsServiceTasks;
+        //}
 
 
     }
