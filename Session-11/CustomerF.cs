@@ -16,7 +16,7 @@ namespace Session_11
 {
     public partial class CustomerF : DevExpress.XtraEditors.XtraForm
     {
-        private const string FILE_NAME = "storage.json";
+        private const string FILE_NAME = "Customer.json";
         private Customer _customer;
         private ServiceCenter _serviceCenter;
         public CustomerF()
@@ -36,24 +36,7 @@ namespace Session_11
 
         private void CustomerF_Load(object sender, EventArgs e)
         {
-            if (_customer == null)
-            {
-                _customer = new Customer();
-                _serviceCenter.Customers.Add(_customer);
-                bsCustomers.DataSource = _customer;
-            }
-
-            bsCustomers.DataSource = _customer;
-
-            //TODO Customer multiple task services
-
-            //bsCourses.DataSource = bsStudents;
-            //bsCourses.DataMember = "Courses";
-            //grdCourses.DataSource = bsCourses;
-
-            SetDataBindings();
-            //ClearDataBindings();
-            
+            LoadCustomer();
         }
         private void SetDataBindings()
         {
@@ -73,7 +56,26 @@ namespace Session_11
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+        private void LoadCustomer()
+        {
+            if (_customer == null)
+            {
+                _customer = new Customer();
+                _serviceCenter.Customers.Add(_customer);
+                bsCustomers.DataSource = _customer;
+            }
+
+            bsCustomers.DataSource = _customer;
+
+            //TODO Customer multiple task services
+
+            //bsCourses.DataSource = bsStudents;
+            //bsCourses.DataMember = "Courses";
+            //grdCourses.DataSource = bsCourses;
+
+            SetDataBindings();
         }
         
     }

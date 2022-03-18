@@ -11,6 +11,7 @@ namespace CarServiceCenterLibrary
         public List<Customer> Customers { get; set; }
         public List<Car> Cars { get; set; }
         public List<Engineer> Engineers { get; set; }
+        public List<ServiceTask> ServiceTasks { get; set; }
         public ServiceCenter()
         {
             Cars = new List<Car>()
