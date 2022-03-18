@@ -42,6 +42,8 @@
             this.monthlyLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.serviceTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editServiceTask = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -54,6 +56,7 @@
             this.carToolStripMenuItem,
             this.staffToolStripMenuItem,
             this.engineerToolStripMenuItem,
+            this.serviceTaskToolStripMenuItem,
             this.transactionToolStripMenuItem,
             this.monthlyLedgerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -73,7 +76,7 @@
             // editCustomer
             // 
             this.editCustomer.Name = "editCustomer";
-            this.editCustomer.Size = new System.Drawing.Size(180, 22);
+            this.editCustomer.Size = new System.Drawing.Size(103, 22);
             this.editCustomer.Text = "Edit...";
             this.editCustomer.Click += new System.EventHandler(this.editCustomer_Click);
             // 
@@ -88,7 +91,7 @@
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.editToolStripMenuItem1.Text = "Edit...";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
@@ -131,7 +134,7 @@
             // newTrasaction
             // 
             this.newTrasaction.Name = "newTrasaction";
-            this.newTrasaction.Size = new System.Drawing.Size(103, 22);
+            this.newTrasaction.Size = new System.Drawing.Size(180, 22);
             this.newTrasaction.Text = "Edit...";
             // 
             // monthlyLedgerToolStripMenuItem
@@ -157,6 +160,21 @@
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(765, 345);
             this.Root.TextVisible = false;
+            // 
+            // serviceTaskToolStripMenuItem
+            // 
+            this.serviceTaskToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editServiceTask});
+            this.serviceTaskToolStripMenuItem.Name = "serviceTaskToolStripMenuItem";
+            this.serviceTaskToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.serviceTaskToolStripMenuItem.Text = "Service Task";
+            // 
+            // editServiceTask
+            // 
+            this.editServiceTask.Name = "editServiceTask";
+            this.editServiceTask.Size = new System.Drawing.Size(180, 22);
+            this.editServiceTask.Text = "Edit...";
+            this.editServiceTask.Click += new System.EventHandler(this.editServiceTask_Click);
             // 
             // CarServiceCenterForm
             // 
@@ -194,5 +212,7 @@
         private ToolStripMenuItem editToolStripMenuItem2;
         private ToolStripMenuItem engineerToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem3;
+        private ToolStripMenuItem serviceTaskToolStripMenuItem;
+        private ToolStripMenuItem editServiceTask;
     }
 }

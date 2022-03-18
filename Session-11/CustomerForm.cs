@@ -31,37 +31,21 @@ namespace Session_11
         #region UI Controls
         private void btnNew_Click(object sender, EventArgs e)
         {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
-
-            CustomerF customerForm = new CustomerF(serviceCenter);
-            customerForm.ShowDialog();
-            grvCustomers.RefreshData();
+            NewData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var res = MessageBox.Show(this, "Are you sure you want to delete the selected Student?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res != DialogResult.Yes)
-                return;
-            var customer = bsCustomers.Current as Customer;
-            bsCustomers.Remove(customer);
-            SaveData<CustomerF>();
+            DeleteData();
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
-
-            var customer = bsCustomers.Current as Customer;
-
-            CustomerF customerForm = new CustomerF(serviceCenter, customer);
-            customerForm.ShowDialog();
-            grvCustomers.RefreshData();
-
+            EditData();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
         #endregion
         private void SaveData<T>() where T : Form, new()
@@ -82,6 +66,33 @@ namespace Session_11
             bsCustomers.DataMember = "Customers";
 
             grdCustomers.DataSource = bsCustomers;
+        }
+        private void EditData()
+        {
+            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+
+            var customer = bsCustomers.Current as Customer;
+
+            CustomerF customerForm = new CustomerF(serviceCenter, customer);
+            customerForm.ShowDialog();
+            grvCustomers.RefreshData();
+        }
+        private void DeleteData()
+        {
+            var res = MessageBox.Show(this, "Are you sure you want to delete the selected Student?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res != DialogResult.Yes)
+                return;
+            var customer = bsCustomers.Current as Customer;
+            bsCustomers.Remove(customer);
+            SaveData<CustomerF>();
+        }
+        private void NewData()
+        {
+            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+
+            CustomerF customerForm = new CustomerF(serviceCenter);
+            customerForm.ShowDialog();
+            grvCustomers.RefreshData();
         }
     }
 
