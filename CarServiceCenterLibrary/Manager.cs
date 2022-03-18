@@ -9,8 +9,8 @@ namespace CarServiceCenterLibrary
     [Serializable]
     public class Manager : Person
     {
-        //TODO: SAlary month overloading
         public decimal SallaryPerMonth { get; set; }
+        public List<Engineer> Engineers { get; set; }
         public Manager()
         {
 

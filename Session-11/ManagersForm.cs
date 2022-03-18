@@ -16,8 +16,8 @@ namespace Session_11
     public partial class ManagersForm : DevExpress.XtraEditors.XtraForm
     {
         OpenForm openF = new OpenForm();
-        List<Manager> managers;
-        public readonly ManagerService managerService = new ManagerService();
+        ServiceCenter serviceCenter;
+        public readonly StorageService storageService = new StorageService();
         public ManagersForm()
         {
             InitializeComponent();
@@ -25,9 +25,8 @@ namespace Session_11
         }
         private void ManagersForm_Load(object sender, EventArgs e)
         {
-
-            managers = managerService.GetManagers();
-            bsManagers.DataSource = managers;
+            serviceCenter = storageService.GetSeviceCenter();
+            bsManagers.DataSource = serviceCenter.Managers;
 
 
         }
@@ -60,6 +59,24 @@ namespace Session_11
             }
 
         }
+        private void btnSaveClose_Click(object sender, EventArgs e)
+        {
+            serviceCenter.Managers = bsManagers.DataSource as List<Manager>;
+            storageService.SaveServiceCenter(serviceCenter);
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure that you want to delete this Manager?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                var selectedManager = GetSelectedManager();
+                ((List<Manager>)bsManagers.DataSource).Remove(selectedManager);
+                grvManagers.RefreshData();
+            }
+            
+        }
 
 
         private Manager? GetSelectedManager()
@@ -77,22 +94,5 @@ namespace Session_11
         }
 
 
-        private void btnSaveClose_Click(object sender, EventArgs e)
-        {
-            managerService.SaveManagers(bsManagers.DataSource as List<Manager>);
-            this.Close();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            var result = MessageBox.Show("Are you sure that you want to delete this Manager?", "Delete Confirmation", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                var selectedManager = GetSelectedManager();
-                ((List<Manager>)bsManagers.DataSource).Remove(selectedManager);
-                grvManagers.RefreshData();
-            }
-            
-        }
     }
 }

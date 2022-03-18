@@ -44,6 +44,10 @@ namespace Session_11
             SaveManager();
             this.Close();
         }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void SaveManager()
         {
@@ -60,9 +64,5 @@ namespace Session_11
 
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }
