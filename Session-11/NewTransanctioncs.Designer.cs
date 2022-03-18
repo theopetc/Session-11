@@ -51,6 +51,15 @@
             this.grdTransactionsLines = new DevExpress.XtraGrid.GridControl();
             this.grvTransactionLines = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnAddTask = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnDeleteTask = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -76,10 +85,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionsLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btnCancel);
+            this.layoutControl1.Controls.Add(this.btnSave);
+            this.layoutControl1.Controls.Add(this.btnDeleteTask);
+            this.layoutControl1.Controls.Add(this.btnAddTask);
             this.layoutControl1.Controls.Add(this.grdTransactionsLines);
             this.layoutControl1.Controls.Add(this.textEdit1);
             this.layoutControl1.Controls.Add(this.searchLookUpEdit3);
@@ -110,7 +128,12 @@
             this.emptySpaceItem4,
             this.emptySpaceItem5,
             this.emptySpaceItem6,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlItem7,
+            this.layoutControlItem8,
+            this.layoutControlItem9,
+            this.layoutControlItem10,
+            this.emptySpaceItem1});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(863, 422);
             this.Root.TextVisible = false;
@@ -146,7 +169,7 @@
             this.searchLookUpEdit1.Properties.PopupView = this.searchLookUpEdit1View;
             this.searchLookUpEdit1.Size = new System.Drawing.Size(267, 20);
             this.searchLookUpEdit1.StyleController = this.layoutControl1;
-            this.searchLookUpEdit1.TabIndex = 3;
+            this.searchLookUpEdit1.TabIndex = 2;
             // 
             // layoutControlItem2
             // 
@@ -173,7 +196,7 @@
             this.searchLookUpEdit2.Properties.PopupView = this.searchLookUpEdit2View;
             this.searchLookUpEdit2.Size = new System.Drawing.Size(267, 20);
             this.searchLookUpEdit2.StyleController = this.layoutControl1;
-            this.searchLookUpEdit2.TabIndex = 4;
+            this.searchLookUpEdit2.TabIndex = 3;
             // 
             // layoutControlItem3
             // 
@@ -200,7 +223,7 @@
             this.searchLookUpEdit3.Properties.PopupView = this.searchLookUpEdit3View;
             this.searchLookUpEdit3.Size = new System.Drawing.Size(267, 20);
             this.searchLookUpEdit3.StyleController = this.layoutControl1;
-            this.searchLookUpEdit3.TabIndex = 5;
+            this.searchLookUpEdit3.TabIndex = 4;
             // 
             // layoutControlItem4
             // 
@@ -225,7 +248,7 @@
             this.textEdit1.Properties.ReadOnly = true;
             this.textEdit1.Size = new System.Drawing.Size(267, 20);
             this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 6;
+            this.textEdit1.TabIndex = 5;
             // 
             // layoutControlItem5
             // 
@@ -281,8 +304,8 @@
             this.grdTransactionsLines.Location = new System.Drawing.Point(12, 132);
             this.grdTransactionsLines.MainView = this.grvTransactionLines;
             this.grdTransactionsLines.Name = "grdTransactionsLines";
-            this.grdTransactionsLines.Size = new System.Drawing.Size(839, 278);
-            this.grdTransactionsLines.TabIndex = 7;
+            this.grdTransactionsLines.Size = new System.Drawing.Size(839, 252);
+            this.grdTransactionsLines.TabIndex = 6;
             this.grdTransactionsLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTransactionLines});
             // 
@@ -296,9 +319,89 @@
             this.layoutControlItem6.Control = this.grdTransactionsLines;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(843, 282);
+            this.layoutControlItem6.Size = new System.Drawing.Size(843, 256);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
+            // 
+            // btnAddTask
+            // 
+            this.btnAddTask.Location = new System.Drawing.Point(469, 388);
+            this.btnAddTask.Name = "btnAddTask";
+            this.btnAddTask.Size = new System.Drawing.Size(101, 22);
+            this.btnAddTask.StyleController = this.layoutControl1;
+            this.btnAddTask.TabIndex = 7;
+            this.btnAddTask.Text = "Add Task Service...";
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.btnAddTask;
+            this.layoutControlItem7.Location = new System.Drawing.Point(457, 376);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(105, 26);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
+            // btnDeleteTask
+            // 
+            this.btnDeleteTask.Location = new System.Drawing.Point(574, 388);
+            this.btnDeleteTask.Name = "btnDeleteTask";
+            this.btnDeleteTask.Size = new System.Drawing.Size(101, 22);
+            this.btnDeleteTask.StyleController = this.layoutControl1;
+            this.btnDeleteTask.TabIndex = 8;
+            this.btnDeleteTask.Text = "Delete Task Service";
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.btnDeleteTask;
+            this.layoutControlItem8.Location = new System.Drawing.Point(562, 376);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(105, 26);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(679, 388);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(88, 22);
+            this.btnSave.StyleController = this.layoutControl1;
+            this.btnSave.TabIndex = 9;
+            this.btnSave.Text = "Save";
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.btnSave;
+            this.layoutControlItem9.Location = new System.Drawing.Point(667, 376);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(92, 26);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(771, 388);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(80, 22);
+            this.btnCancel.StyleController = this.layoutControl1;
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Cancel";
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.btnCancel;
+            this.layoutControlItem10.Location = new System.Drawing.Point(759, 376);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(84, 26);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 376);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(457, 26);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // NewTransanctioncs
             // 
@@ -333,6 +436,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionsLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,5 +470,14 @@
         private DevExpress.XtraGrid.GridControl grdTransactionsLines;
         private DevExpress.XtraGrid.Views.Grid.GridView grvTransactionLines;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.SimpleButton btnDeleteTask;
+        private DevExpress.XtraEditors.SimpleButton btnAddTask;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }
