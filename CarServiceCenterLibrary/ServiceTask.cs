@@ -12,7 +12,10 @@ namespace CarServiceCenterLibrary
         public int Code { get; set; }//Dictionary enum 
         public string Description { get; set; }
         public decimal Hours { get; set; }
-
+        public ServiceTask()
+        {
+            ID = Guid.NewGuid();
+        }
 
         public ServiceTask(int code, string description, decimal hours)
         {

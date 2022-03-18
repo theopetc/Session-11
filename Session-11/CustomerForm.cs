@@ -16,51 +16,84 @@ namespace Session_11
 {
     public partial class CustomerForm : DevExpress.XtraEditors.XtraForm
     {
-        private const string FILE_NAME = "customers.json";
+        private const string FILE_NAME = "storage.json";
+        
+        
         public CustomerForm()
         {
             InitializeComponent();
+            
+        }
+        private void CustomerForm_Load(object sender, EventArgs e)
+        {
+            PopulateCustomers();
         }
         #region UI Controls
         private void btnNew_Click(object sender, EventArgs e)
         {
-            var customer = bsCustomer.Current as Customer;
-
-            CustomerF customerForm = new CustomerF(customer);
-            customerForm.ShowDialog();
-            grvCustomers.RefreshData();
+            NewData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var res = MessageBox.Show(this, "Are you sure you want to delete the selected Student?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res != DialogResult.Yes)
-                return;
-            var customer = bsCustomer.Current as Customer;
-            bsCustomer.Remove(customer);
-            SaveData<CustomerF>();
+            DeleteData();
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var customer = bsCustomer.Current as Customer;
-
-            CustomerF customerForm = new CustomerF(customer);
-            customerForm.ShowDialog();
-            grvCustomers.RefreshData();
+            EditData();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
         #endregion
         private void SaveData<T>() where T : Form, new()
         {
-            var customer = bsCustomer.Current as Customer;
-            string json = JsonSerializer.Serialize(customer);
+            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+            string json = JsonSerializer.Serialize(serviceCenter);
             File.WriteAllText(FILE_NAME, json);
         }
 
+        private void PopulateCustomers()
+        {
+            string s = File.ReadAllText(FILE_NAME);
+            var serviceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
 
+            bsServiceCenter.DataSource = serviceCenter;
+
+            bsCustomers.DataSource = bsServiceCenter;
+            bsCustomers.DataMember = "Customers";
+
+            grdCustomers.DataSource = bsCustomers;
+        }
+        private void EditData()
+        {
+            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+
+            var customer = bsCustomers.Current as Customer;
+
+            CustomerF customerForm = new CustomerF(serviceCenter, customer);
+            customerForm.ShowDialog();
+            grvCustomers.RefreshData();
+        }
+        private void DeleteData()
+        {
+            var res = MessageBox.Show(this, "Are you sure you want to delete the selected Student?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res != DialogResult.Yes)
+                return;
+            var customer = bsCustomers.Current as Customer;
+            bsCustomers.Remove(customer);
+            SaveData<CustomerF>();
+        }
+        private void NewData()
+        {
+            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+
+            CustomerF customerForm = new CustomerF(serviceCenter);
+            customerForm.ShowDialog();
+            grvCustomers.RefreshData();
+        }
     }
+
 }

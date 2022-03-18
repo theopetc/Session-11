@@ -15,7 +15,7 @@ namespace Session_11
         public void Open<T>() where T : Form, new()
         {
             var form = new T();
-            form.ShowDialog();
+            form.Show();
         }
         public T GetForm<T>(params object[] prms) where T : Form
         {

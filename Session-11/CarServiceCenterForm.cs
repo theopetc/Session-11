@@ -26,7 +26,7 @@ namespace Session_11
         }
 
         private void editCustomer_Click(object sender, EventArgs e)
-        {
+        {   
             openF.Open<CustomerForm>();
         }
 
@@ -38,6 +38,11 @@ namespace Session_11
         private void editToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             openF.Open<ManagersForm>();
+        }
+
+        private void editServiceTask_Click(object sender, EventArgs e)
+        {
+            openF.Open<ServiceTaskForm>();
         }
     }
 
