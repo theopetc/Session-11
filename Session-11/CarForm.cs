@@ -20,7 +20,8 @@ namespace Session_11
         public const string FILE_NAME = "storage.json";
         public CarForm()
         {
-            InitializeComponent();      
+            InitializeComponent();
+
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace Session_11
                 return;
             var car = bsCar.Current as Car;
             bsCar.Remove(car);
-            //SaveData<CarF>();
+            SaveData<CarF>();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -48,14 +49,14 @@ namespace Session_11
             var serviceCenter = bsServiceCenter.Current as ServiceCenter;
             var car = bsCar.Current as Car;
             
-            CarF carForm = new CarF();
+            CarF carForm = new CarF(serviceCenter,car);
             carForm.ShowDialog();
             grvCars.RefreshData();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
         private void SaveData<T>() where T : Form, new()
         {
@@ -63,17 +64,22 @@ namespace Session_11
             string json = JsonSerializer.Serialize(serviceCenter);
             File.WriteAllText(FILE_NAME, json);
         }
-        //private void PopulateCustomers()
-        //{
-        //    string s = File.ReadAllText(FILE_NAME);
-        //    var serviceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
+        private void PopulateCars()
+        {
+            string s = File.ReadAllText(FILE_NAME);
+            var serviceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
 
-        //    bsServiceCenter.DataSource = serviceCenter;
+            bsServiceCenter.DataSource = serviceCenter;
 
-        //    bsCar.DataSource = bsServiceCenter;
-        //    bsCar.DataMember = "Car";
+            bsCar.DataSource = bsServiceCenter;
+            bsCar.DataMember = "Cars";
 
-        //    //grvCars.DataSource = bsCar;
-        //}
+            grdCars.DataSource = bsCar;
+        }
+
+        private void CarForm_Load(object sender, EventArgs e)
+        {
+            PopulateCars();
+        }
     }
 }

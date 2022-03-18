@@ -30,6 +30,20 @@ namespace Session_11
             _serviceCenter = serviceCenter;
         }
 
+        public CarF(ServiceCenter serviceCenter, Car car):this(serviceCenter)
+        {
+            _car = car;
+            if (_car == null)
+            {
+                _car = new Car() { Brand = Brands.Reanult };
+                _serviceCenter.Cars.Add(_car);
+                bsCar.DataSource = _car;
+
+            }
+            bsCar.DataSource = _car;
+            populateControls();
+
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -37,7 +51,7 @@ namespace Session_11
         private void btnOK_Click(object sender, EventArgs e)
         {
             Save();
-            //this.Close();
+            this.Close();
         }
 
 
@@ -69,12 +83,13 @@ namespace Session_11
         {
             ctrlRegNum.DataBindings.Add(new Binding("EditValue", bsCar, "RegistrationNumber", true));
             ctrlModel.DataBindings.Add(new Binding("EditValue", bsCar, "Model", true));
+            comboBrand.DataBindings.Add(new Binding("EditValue", bsCar, "Brand", true));
         }
         private void Save()
         {
             string json = JsonSerializer.Serialize(_serviceCenter);
             File.WriteAllText(FILE_NAME, json);
-            DialogResult = DialogResult.OK; 
+            this.Close(); 
         }
     }
 
