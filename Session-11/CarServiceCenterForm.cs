@@ -34,6 +34,13 @@ namespace Session_11
         {
 
         }
+
+        private void editEngineer_Click(object sender, EventArgs e)
+        {
+            EngineerForm engineerForm = new EngineerForm();
+
+            engineerForm.ShowDialog();
+        }
     }
 
 }

@@ -36,7 +36,7 @@
             this.staffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.engineerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editEngineer = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTrasaction = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +73,7 @@
             // editCustomer
             // 
             this.editCustomer.Name = "editCustomer";
-            this.editCustomer.Size = new System.Drawing.Size(180, 22);
+            this.editCustomer.Size = new System.Drawing.Size(103, 22);
             this.editCustomer.Text = "Edit...";
             this.editCustomer.Click += new System.EventHandler(this.editCustomer_Click);
             // 
@@ -88,7 +88,7 @@
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.editToolStripMenuItem1.Text = "Edit...";
             this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
@@ -109,16 +109,17 @@
             // engineerToolStripMenuItem
             // 
             this.engineerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem3});
+            this.editEngineer});
             this.engineerToolStripMenuItem.Name = "engineerToolStripMenuItem";
             this.engineerToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.engineerToolStripMenuItem.Text = "Engineer";
             // 
-            // editToolStripMenuItem3
+            // editEngineer
             // 
-            this.editToolStripMenuItem3.Name = "editToolStripMenuItem3";
-            this.editToolStripMenuItem3.Size = new System.Drawing.Size(100, 22);
-            this.editToolStripMenuItem3.Text = "Edit..";
+            this.editEngineer.Name = "editEngineer";
+            this.editEngineer.Size = new System.Drawing.Size(180, 22);
+            this.editEngineer.Text = "Edit..";
+            this.editEngineer.Click += new System.EventHandler(this.editEngineer_Click);
             // 
             // transactionToolStripMenuItem
             // 
@@ -193,6 +194,6 @@
         private ToolStripMenuItem editToolStripMenuItem1;
         private ToolStripMenuItem editToolStripMenuItem2;
         private ToolStripMenuItem engineerToolStripMenuItem;
-        private ToolStripMenuItem editToolStripMenuItem3;
+        private ToolStripMenuItem editEngineer;
     }
 }

@@ -9,11 +9,22 @@ namespace CarServiceCenterLibrary
     public class ServiceCenter
     {
         public List<Customer> Customers { get; set; }
-        public List<Engineer> Engineers { get; set; }   
+        public List<Car> Cars { get; set; }
+        public List<Engineer> Engineers { get; set; }
         public ServiceCenter()
         {
-            Customers = new List<Customer>();
-            Engineers = new List<Engineer>();  
+            Cars = new List<Car>()
+            {
+                new Car()
+            };
+            Customers = new List<Customer>()
+            {
+                new Customer()
+            };
+            Engineers = new List<Engineer>()
+            {
+                new Engineer()
+            };
         }
     }
 }
