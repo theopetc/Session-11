@@ -90,7 +90,7 @@
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
             this.editToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.editToolStripMenuItem1.Text = "Edit...";
-            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editCar_Click);
             // 
             // staffToolStripMenuItem
             // 
@@ -103,8 +103,9 @@
             // editToolStripMenuItem2
             // 
             this.editToolStripMenuItem2.Name = "editToolStripMenuItem2";
-            this.editToolStripMenuItem2.Size = new System.Drawing.Size(103, 22);
+            this.editToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem2.Text = "Edit...";
+            this.editToolStripMenuItem2.Click += new System.EventHandler(this.editToolStripMenuItem2_Click);
             // 
             // engineerToolStripMenuItem
             // 

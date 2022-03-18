@@ -30,9 +30,14 @@ namespace Session_11
             openF.Open<CustomerForm>();
         }
 
-        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void editCar_Click(object sender, EventArgs e)
         {
+            openF.Open<CarForm>();
+        }
 
+        private void editToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            openF.Open<ManagersForm>();
         }
 
         private void editEngineer_Click(object sender, EventArgs e)

@@ -19,7 +19,7 @@ namespace Session_11
     {
         private const string FILE_NAME = "storage.json";
         private ServiceTask _serviceTask;
-        private ServiceCenter _serviceCenter;
+        private readonly ServiceCenter _serviceCenter;
         public ServiceTaskF()
         {
             InitializeComponent();

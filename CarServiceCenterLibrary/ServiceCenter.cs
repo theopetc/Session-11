@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarServiceCenterLibrary;
 
-namespace CarServiceCenterLibrary
+namespace Session_11
 {
+    [Serializable]
     public class ServiceCenter
     {
         public List<Customer> Customers { get; set; }
         public List<Car> Cars { get; set; }
         public List<Engineer> Engineers { get; set; }
         public List<ServiceTask> ServiceTasks { get; set; }
+        public List<Manager> Managers { get; set; }
         public ServiceCenter()
         {
             Cars = new List<Car>()
@@ -22,10 +20,11 @@ namespace CarServiceCenterLibrary
             {
                 new Customer()
             };
-            Engineers = new List<Engineer>()
+            ServiceTasks = new List<ServiceTask>()
             {
-                new Engineer()
+                new ServiceTask()
             };
+            Managers = new List<Manager>();
         }
     }
 }
