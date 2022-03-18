@@ -11,7 +11,7 @@ namespace CarServiceCenterLibrary
         public Guid ID { get; set; }
         public Brands Brand { get; set; }
         public string Model { get; set; }
-        public string CarRegistrationNumber { get; set; }
+        public string RegistrationNumber { get; set; }
 
         public Car()
         {
