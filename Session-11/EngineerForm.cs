@@ -25,11 +25,8 @@ namespace Session_11
         }
         private void EngineerForm_Load(object sender, EventArgs e)
         {
-            LoadData();
-            
+            LoadData();            
             PopulateControls();
-
-
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -60,56 +57,25 @@ namespace Session_11
         private void btnEdit_Click(object sender, EventArgs e)
         {
             var listOfEngineers = bsServiceCenter.Current as ServiceCenter;
-
             var engineer = bsEngineers.Current as Engineer;
-
             EngineerEditForm editForm = new EngineerEditForm(listOfEngineers, engineer);            
-            editForm.ShowDialog();
-
-            
-
+            editForm.ShowDialog();            
             grvEngineers.RefreshData();
         }
         
         private void PopulateControls()
-        {
-
-            //Populate Manager
-            //List<Manager> managers = new List<Manager>();
-            //BindingSource bsManagers = new BindingSource();
-
-            //bsManagers = bsServiceCenter;
-            //bsManagers.DataSource = managers;
-            //bsManagers.DataMember = "Name";
-            //ServiceCenter.Managers.Add(new Manager
-            //{
-            //    Name = "Managareos"
-
-
-            //});
-            /*
+        {                        
             repManager.DataSource = ServiceCenter.Managers;
             repManager.Columns.Add(new LookUpColumnInfo("Name", "Name"));
 
             repManager.DisplayMember = "ID";
-            repManager.ValueMember = "ID";
-            //repManager.KeyMember = "ID";
+            repManager.ValueMember = "ID";            
 
-            */
-
-            //Populate Manager
-
-
-            bsServiceCenter.DataSource = ServiceCenter;   
-            
-
+            bsServiceCenter.DataSource = ServiceCenter;               
             bsEngineers.DataSource = bsServiceCenter;
             bsEngineers.DataMember = "Engineers";
 
-            grdEngineers.DataSource = bsEngineers;
-
-            
-
+            grdEngineers.DataSource = bsEngineers;            
 
             grvEngineers.RefreshData();
         }

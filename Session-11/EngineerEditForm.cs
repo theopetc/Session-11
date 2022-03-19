@@ -62,33 +62,20 @@ namespace Session_11
         
         private void PopulateEngineers()
         {
-
-            //repManager.DataSource = ServiceCenter.Managers;
-            //repManager.Columns.Add(new LookUpColumnInfo("Name", "Name"));
-
-            //repManager.DisplayMember = "Name";
-            //repManager.ValueMember = "ID";
-
             //TODO: to dictionary paizei na einai axrhsto?
             //IDictionary<Guid, string> managersAndID = new Dictionary<Guid, string>();
             
             //for (int i = 0; i < ServiceCenter.Managers.Count; i++)
             //{
             //    managersAndID.Add(ServiceCenter.Managers[i].ID, ServiceCenter.Managers[i].Name);
-            //}
-            
-
-
-            
+            //}            
 
             ctrlManager.Properties.DataSource = ServiceCenter.Managers;
             ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("Name", "Name"));
             ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("ID", "ID"));
             ctrlManager.Properties.DisplayMember = "Name";
             ctrlManager.Properties.ValueMember = "ID";
-
             
-
             if (_engineer == null)
             {
                 pressedNew = true;
@@ -131,10 +118,7 @@ namespace Session_11
                 ServiceCenter.Engineers.Insert(index, _engineerBackup);
                 
                 this.DialogResult = DialogResult.Cancel;
-            }                        
-            
-        }
-
-        
+            }                                    
+        }        
     }
 }
