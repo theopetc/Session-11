@@ -17,6 +17,7 @@ namespace Session_11
 {
     public partial class CustomerF : DevExpress.XtraEditors.XtraForm
     {
+        OpenForm openF = new OpenForm();
         Customer _customer;
         State _state;
         BindingSource _bindingSource;
@@ -41,23 +42,12 @@ namespace Session_11
         private void CustomerF_Load(object sender, EventArgs e)
         {
             bsCustomers.DataSource = _customer;
-            SetDataBindings();
-        }
-        private void SetDataBindings()
-        {
-            
-            ctrlName.DataBindings.Add(new Binding("EditValue", bsCustomers, "Name", true));
-            ctrlSurname.DataBindings.Add(new Binding("EditValue", bsCustomers, "Surname", true));
-            ctrlPhone.DataBindings.Add(new Binding("EditValue", bsCustomers, "Phone", true));
-            ctrlTIN.DataBindings.Add(new Binding("EditValue", bsCustomers, "TIN", true));
-            
+            openF.SetDataBindingsCustomers(ctrlName, ctrlSurname, ctrlPhone, ctrlTIN, bsCustomers);
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
             SaveCustomer();
             this.Close();
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -69,15 +59,12 @@ namespace Session_11
             if (_state == State.New)
             {
                 ((List<Customer>)_bindingSource.DataSource).Add(_customer);
-
             }
             else
             {
                 var editedItemIndex = ((List<Customer>)_bindingSource.DataSource).FindIndex(x => x.ID == _customer.ID);
                 ((List<Customer>)_bindingSource.DataSource)[editedItemIndex] = _customer;
             }
-
         }
-
     }
 }

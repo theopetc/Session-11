@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.grdServiceTasks = new DevExpress.XtraGrid.GridControl();
+            this.bsServiceTasks = new System.Windows.Forms.BindingSource(this.components);
             this.grvServiceTasks = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,10 +47,10 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bsServiceTasks = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdServiceTasks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvServiceTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -58,7 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -88,6 +88,10 @@
             this.grdServiceTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvServiceTasks});
             this.grdServiceTasks.Click += new System.EventHandler(this.grdServiceTasks_Click);
+            // 
+            // bsServiceTasks
+            // 
+            this.bsServiceTasks.DataSource = typeof(CarServiceCenterLibrary.ServiceTask);
             // 
             // grvServiceTasks
             // 
@@ -231,10 +235,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // bsServiceTasks
-            // 
-            this.bsServiceTasks.DataSource = typeof(CarServiceCenterLibrary.ServiceTask);
-            // 
             // ServiceTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,11 +242,12 @@
             this.ClientSize = new System.Drawing.Size(765, 369);
             this.Controls.Add(this.layoutControl1);
             this.Name = "ServiceTaskForm";
-            this.Text = "ServiceTaskForm";
+            this.Text = "Service Task";
             this.Load += new System.EventHandler(this.ServiceTaskForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdServiceTasks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvServiceTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -255,7 +256,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsServiceTasks)).EndInit();
             this.ResumeLayout(false);
 
         }

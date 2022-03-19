@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace Session_11
 {
-    public partial class NewTransanctioncs : DevExpress.XtraEditors.XtraForm
+    public partial class ShowTransactionForm : DevExpress.XtraEditors.XtraForm
     {
-        public NewTransanctioncs()
+        public ShowTransactionForm()
         {
             InitializeComponent();
         }

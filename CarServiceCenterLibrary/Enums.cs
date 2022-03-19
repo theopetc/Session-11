@@ -14,6 +14,11 @@ namespace CarServiceCenterLibrary
         Audi , 
         Mercedes ,
         Reanult , 
-        Citroen
+        Citroen,
+        Ferrari,
+        Lamborgini,
+        VolksWagen,
+        Mazda,
+        Saab
     }
 }
