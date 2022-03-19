@@ -265,7 +265,7 @@
             this.ClientSize = new System.Drawing.Size(765, 369);
             this.Controls.Add(this.layoutControl1);
             this.Name = "ServiceTaskF";
-            this.Text = "ServiceTaskF";
+            this.Text = "New Service Task";
             this.Load += new System.EventHandler(this.ServiceTaskF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
