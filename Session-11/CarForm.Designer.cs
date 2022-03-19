@@ -89,6 +89,7 @@
             // 
             this.grvCars.GridControl = this.grdCars;
             this.grvCars.Name = "grvCars";
+            this.grvCars.OptionsBehavior.Editable = false;
             // 
             // simpleButton2
             // 
