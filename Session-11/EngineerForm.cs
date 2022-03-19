@@ -64,20 +64,25 @@ namespace Session_11
         }
         
         private void PopulateControls()
-        {                        
+        {
+            SetRepManager();
+
+            bsServiceCenter.DataSource = ServiceCenter;
+            bsEngineers.DataSource = bsServiceCenter;
+            bsEngineers.DataMember = "Engineers";
+
+            grdEngineers.DataSource = bsEngineers;
+
+            grvEngineers.RefreshData();
+        }
+
+        private void SetRepManager()
+        {
             repManager.DataSource = ServiceCenter.Managers;
             repManager.Columns.Add(new LookUpColumnInfo("Name", "Name"));
 
             repManager.DisplayMember = "ID";
-            repManager.ValueMember = "ID";            
-
-            bsServiceCenter.DataSource = ServiceCenter;               
-            bsEngineers.DataSource = bsServiceCenter;
-            bsEngineers.DataMember = "Engineers";
-
-            grdEngineers.DataSource = bsEngineers;            
-
-            grvEngineers.RefreshData();
+            repManager.ValueMember = "ID";
         }
 
         private void LoadData()
