@@ -11,9 +11,11 @@ namespace Session_11
         public List<ServiceTask> ServiceTasks { get; set; }
         public List<Manager> Managers { get; set; }
         public List<Transaction> Transactions { get; set; }
+        public List<Engineer> Engineers { get; set; }
 
         public ServiceCenter()
-        {
+        {   
+            Engineers = new List<Engineer>();
             Cars = new List<Car>();
             Customers = new List<Customer>();
             ServiceTasks = new List<ServiceTask>();
