@@ -1,6 +1,7 @@
 ﻿using CarServiceCenterLibrary;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,8 @@ namespace Session_11
 {
     public partial class EngineerEditForm : DevExpress.XtraEditors.XtraForm
     {
-        private const string FILE_NAME = "engineers.json";
+        //private const string FILE_NAME = "engineers.json";
+        public readonly StorageService storageService = new StorageService();
         public ServiceCenter ServiceCenter;
         private Engineer _engineer;
         private Engineer _engineerBackup;
@@ -97,9 +99,10 @@ namespace Session_11
                       
 
         private void btnSave_Click(object sender, EventArgs e)
-        {            
-            string json = JsonSerializer.Serialize(ServiceCenter);
-            File.WriteAllText(FILE_NAME, json);
+        {
+            storageService.SaveServiceCenter(ServiceCenter);
+            //string json = JsonSerializer.Serialize(ServiceCenter);
+            //File.WriteAllText(FILE_NAME, json);
             DialogResult = DialogResult.OK;
         }
 

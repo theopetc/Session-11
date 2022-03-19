@@ -1,6 +1,7 @@
 ﻿using CarServiceCenterLibrary;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,8 @@ namespace Session_11
     public partial class EngineerForm : DevExpress.XtraEditors.XtraForm
     {
         ServiceCenter ServiceCenter = new ServiceCenter();
-        private const string FILE_NAME = "engineers.json";
+        //private const string FILE_NAME = "engineers.json";
+        public readonly StorageService storageService = new StorageService();
         public EngineerForm()
         {
             InitializeComponent();
@@ -87,20 +89,23 @@ namespace Session_11
 
         private void LoadData()
         {
-            if (!File.Exists(FILE_NAME))
-            {                
-                MessageBox.Show(FILE_NAME + " doesnt exist");
-            }                            
+            //if (!File.Exists(FILE_NAME))
+            //{                
+            //    MessageBox.Show(FILE_NAME + " doesnt exist");
+            //}                            
 
-            string s = File.ReadAllText(FILE_NAME);
+            //string s = File.ReadAllText(FILE_NAME);
 
-            ServiceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
+            //ServiceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
+
+            ServiceCenter = storageService.GetSeviceCenter();
 
         }
         private void SaveData()
         {
-            string json = JsonSerializer.Serialize(ServiceCenter);
-            File.WriteAllText(FILE_NAME, json);
+            //string json = JsonSerializer.Serialize(ServiceCenter);
+            //File.WriteAllText(FILE_NAME, json);
+            storageService.SaveServiceCenter(ServiceCenter);
         }
     }
 }
