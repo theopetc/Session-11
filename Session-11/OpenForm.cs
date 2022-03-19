@@ -7,11 +7,14 @@ using System.Text.Json;
 using System.IO;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors;
+using CarServiceCenterLibrary;
 
 namespace Session_11
 {
     public class OpenForm
     {
+
         public OpenForm()
         {
 
@@ -26,26 +29,14 @@ namespace Session_11
              return (T)Activator.CreateInstance(typeof(T),prms);
         }
 
-        public void Populate(string file_name, BindingSource service_Center, BindingSource binding, GridControl grid, string item)
+        public void SetDataBindingsCustomers(TextEdit name, TextEdit surname, TextEdit phone, TextEdit tin, BindingSource customer)
         {
-            string s = File.ReadAllText(file_name);
-            var serviceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
 
-            service_Center.DataSource = serviceCenter;
+            name.DataBindings.Add(new Binding("EditValue", customer, "Name", true));
+            surname.DataBindings.Add(new Binding("EditValue", customer, "Surname", true));
+            phone.DataBindings.Add(new Binding("EditValue", customer, "Phone", true));
+            tin.DataBindings.Add(new Binding("EditValue", customer, "TIN", true));
 
-            binding.DataSource = service_Center;
-            binding.DataMember = item;
-
-            grid.DataSource = binding;
         }
-        //public void NewData<T>(BindingSource service_Center, GridView grid) where T : Form, new()
-        //{
-        //    var serviceCenter = service_Center.Current as ServiceCenter;
-        //    var form = new T();
-            
-        //    form.ShowDialog();
-        //    grid.RefreshData();
-        //}
-
     }
 }
