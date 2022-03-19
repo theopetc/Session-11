@@ -1,5 +1,6 @@
 ﻿using CarServiceCenterLibrary;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace Session_11
 {
     public partial class EngineerForm : DevExpress.XtraEditors.XtraForm
     {
-        ServiceCenter ListOfEngineers = new ServiceCenter();
+        ServiceCenter ServiceCenter = new ServiceCenter();
         private const string FILE_NAME = "engineers.json";
         public EngineerForm()
         {
@@ -25,7 +26,9 @@ namespace Session_11
         private void EngineerForm_Load(object sender, EventArgs e)
         {
             LoadData();
+            
             PopulateControls();
+
 
         }
 
@@ -37,7 +40,7 @@ namespace Session_11
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            var listOfEngineers = bsListOfEngineers.Current as ServiceCenter;
+            var listOfEngineers = bsServiceCenter.Current as ServiceCenter;
             EngineerEditForm editForm = new EngineerEditForm(listOfEngineers);            
             editForm.ShowDialog();
             grvEngineers.RefreshData();
@@ -56,12 +59,14 @@ namespace Session_11
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var listOfEngineers = bsListOfEngineers.Current as ServiceCenter;
+            var listOfEngineers = bsServiceCenter.Current as ServiceCenter;
 
             var engineer = bsEngineers.Current as Engineer;
 
             EngineerEditForm editForm = new EngineerEditForm(listOfEngineers, engineer);            
             editForm.ShowDialog();
+
+            
 
             grvEngineers.RefreshData();
         }
@@ -69,19 +74,41 @@ namespace Session_11
         private void PopulateControls()
         {
 
+            //Populate Manager
+            //List<Manager> managers = new List<Manager>();
+            //BindingSource bsManagers = new BindingSource();
 
-            //Engineer engineer = new Engineer();
-            //engineer.Name = "Panos";
-            //engineer.Surname = "Papadopoulos";
-            //engineer.SallaryPerMonth = 600;
-            //ListOfEngineers.Engineers.Add(engineer);
-            //SaveData();
+            //bsManagers = bsServiceCenter;
+            //bsManagers.DataSource = managers;
+            //bsManagers.DataMember = "Name";
+            //ServiceCenter.Managers.Add(new Manager
+            //{
+            //    Name = "Managareos"
 
-            bsListOfEngineers.DataSource = ListOfEngineers;            
-            bsEngineers.DataSource = bsListOfEngineers;
+
+            //});
+            /*
+            repManager.DataSource = ServiceCenter.Managers;
+            repManager.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+
+            repManager.DisplayMember = "ID";
+            repManager.ValueMember = "ID";
+            //repManager.KeyMember = "ID";
+
+            */
+
+            //Populate Manager
+
+
+            bsServiceCenter.DataSource = ServiceCenter;   
+            
+
+            bsEngineers.DataSource = bsServiceCenter;
             bsEngineers.DataMember = "Engineers";
 
             grdEngineers.DataSource = bsEngineers;
+
+            
 
 
             grvEngineers.RefreshData();
@@ -96,12 +123,12 @@ namespace Session_11
 
             string s = File.ReadAllText(FILE_NAME);
 
-            ListOfEngineers = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
+            ServiceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
 
         }
         private void SaveData()
         {
-            string json = JsonSerializer.Serialize(ListOfEngineers);
+            string json = JsonSerializer.Serialize(ServiceCenter);
             File.WriteAllText(FILE_NAME, json);
         }
     }

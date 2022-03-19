@@ -1,5 +1,6 @@
 ﻿using CarServiceCenterLibrary;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,42 +18,82 @@ namespace Session_11
     public partial class EngineerEditForm : DevExpress.XtraEditors.XtraForm
     {
         private const string FILE_NAME = "engineers.json";
-        public ServiceCenter ListOfEngineers;
+        public ServiceCenter ServiceCenter;
         private Engineer _engineer;
+        private Engineer _engineerBackup;
+        private bool pressedNew = false;
+
         public EngineerEditForm()
         {
             InitializeComponent();
         }
 
         public EngineerEditForm(ServiceCenter listOfEngineers)
-        {            
-            ListOfEngineers = listOfEngineers;
+        {
+            ServiceCenter = listOfEngineers;                 
             InitializeComponent();
         }
-
 
         public EngineerEditForm(ServiceCenter listOfEngineers, Engineer engineer)
         {
             _engineer = engineer;
-            ListOfEngineers = listOfEngineers;
+            ServiceCenter = listOfEngineers;            
             InitializeComponent();
         }
 
         private void EngineerEditForm_Load(object sender, EventArgs e)
         {
-
-            PopulateEngineers();
+            if (_engineer != null)
+            {
+                _engineerBackup = new Engineer
+                {
+                    ID = _engineer.ID,
+                    Name = _engineer.Name,
+                    Surname = _engineer.Surname,
+                    ManagerID = _engineer.ManagerID,
+                    SallaryPerMonth = _engineer.SallaryPerMonth,
+                };                
+            }
             
+            PopulateEngineers();
             SetDataBindings();
             
         }
-
+        
         private void PopulateEngineers()
         {
+
+            //repManager.DataSource = ServiceCenter.Managers;
+            //repManager.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+
+            //repManager.DisplayMember = "Name";
+            //repManager.ValueMember = "ID";
+
+            //TODO: to dictionary paizei na einai axrhsto?
+            //IDictionary<Guid, string> managersAndID = new Dictionary<Guid, string>();
+            
+            //for (int i = 0; i < ServiceCenter.Managers.Count; i++)
+            //{
+            //    managersAndID.Add(ServiceCenter.Managers[i].ID, ServiceCenter.Managers[i].Name);
+            //}
+            
+
+
+            
+
+            ctrlManager.Properties.DataSource = ServiceCenter.Managers;
+            ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+            ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("ID", "ID"));
+            ctrlManager.Properties.DisplayMember = "Name";
+            ctrlManager.Properties.ValueMember = "ID";
+
+            
+
             if (_engineer == null)
             {
+                pressedNew = true;
                 _engineer = new Engineer();
-                ListOfEngineers.Engineers.Add(_engineer);
+                ServiceCenter.Engineers.Add(_engineer);
                 bsEngineers.DataSource = _engineer;
             }
             bsEngineers.DataSource = _engineer;                     
@@ -60,23 +101,40 @@ namespace Session_11
 
 
         private void SetDataBindings()
-        {
-            ctrlName.DataBindings.Add(new Binding("EditValue", bsEngineers, "Name", true));
-            ctrlSurname.DataBindings.Add(new Binding("EditValue", bsEngineers, "Surname", true));
-            //ctrlManager.DataBindings.Add(new Binding("EditValue", bsEngineers, "ManagerID", true));
-            ctrlSallary.DataBindings.Add(new Binding("EditValue", bsEngineers, "SallaryPerMonth", true));
+        {            
+            ctrlName.DataBindings.Add(new Binding("EditValue", bsEngineers, "Name", true));            
+            ctrlSurname.DataBindings.Add(new Binding("EditValue", bsEngineers, "Surname", true));            
+            ctrlManager.DataBindings.Add(new Binding("EditValue", bsEngineers, "ManagerID", true));            
+            ctrlSallary.DataBindings.Add(new Binding("EditValue", bsEngineers, "SallaryPerMonth", true));            
         }
+                      
 
         private void btnSave_Click(object sender, EventArgs e)
         {            
-            string json = JsonSerializer.Serialize(ListOfEngineers);
+            string json = JsonSerializer.Serialize(ServiceCenter);
             File.WriteAllText(FILE_NAME, json);
             DialogResult = DialogResult.OK;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            if (pressedNew)
+            {
+                ServiceCenter.Engineers.Remove(_engineer);
+                this.DialogResult = DialogResult.Cancel;                
+            }
+            else
+            {                
+                int index = ServiceCenter.Engineers.IndexOf(_engineer);
+
+                ServiceCenter.Engineers.RemoveAt(index);
+                ServiceCenter.Engineers.Insert(index, _engineerBackup);
+                
+                this.DialogResult = DialogResult.Cancel;
+            }                        
+            
         }
+
+        
     }
 }

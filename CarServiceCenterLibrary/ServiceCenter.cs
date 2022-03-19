@@ -26,5 +26,10 @@ namespace Session_11
             };
             Managers = new List<Manager>();
         }
+
+        //public static implicit operator System.Windows.Forms.BindingSource(ServiceCenter v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

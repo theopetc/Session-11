@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.ctrlManager = new DevExpress.XtraEditors.LookUpEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.ctrlSallary = new DevExpress.XtraEditors.TextEdit();
@@ -42,11 +43,12 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.bsEngineers = new System.Windows.Forms.BindingSource(this.components);
-            this.ctrlManager = new DevExpress.XtraEditors.LookUpEdit();
             this.Manager = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bsEngineers = new System.Windows.Forms.BindingSource(this.components);
+            this.bsListOfEngineers = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSallary.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).BeginInit();
@@ -57,9 +59,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsEngineers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Manager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEngineers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsListOfEngineers)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -77,6 +79,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(504, 420);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // ctrlManager
+            // 
+            this.ctrlManager.Location = new System.Drawing.Point(66, 84);
+            this.ctrlManager.Name = "ctrlManager";
+            this.ctrlManager.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlManager.Size = new System.Drawing.Size(426, 20);
+            this.ctrlManager.StyleController = this.layoutControl1;
+            this.ctrlManager.TabIndex = 11;
             // 
             // btnCancel
             // 
@@ -190,16 +202,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // ctrlManager
-            // 
-            this.ctrlManager.Location = new System.Drawing.Point(66, 84);
-            this.ctrlManager.Name = "ctrlManager";
-            this.ctrlManager.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ctrlManager.Size = new System.Drawing.Size(426, 20);
-            this.ctrlManager.StyleController = this.layoutControl1;
-            this.ctrlManager.TabIndex = 11;
-            // 
             // Manager
             // 
             this.Manager.Control = this.ctrlManager;
@@ -216,10 +218,11 @@
             this.ClientSize = new System.Drawing.Size(504, 420);
             this.Controls.Add(this.layoutControl1);
             //this.Name = "EngineerEditForm";
-            this.Text = "EngineerEditForm";
+            this.Text = "EngineerEditForm";            
             this.Load += new System.EventHandler(this.EngineerEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSallary.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlSurname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlName.Properties)).EndInit();
@@ -230,9 +233,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsEngineers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Manager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEngineers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsListOfEngineers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,5 +258,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.LookUpEdit ctrlManager;
         private DevExpress.XtraLayout.LayoutControlItem Manager;
+        private BindingSource bsListOfEngineers;
     }
 }

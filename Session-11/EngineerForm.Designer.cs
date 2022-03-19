@@ -39,6 +39,7 @@
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colManagerID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repManager = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colSallaryPerMonth = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -48,11 +49,12 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bsEngineers = new System.Windows.Forms.BindingSource(this.components);
-            this.bsListOfEngineers = new System.Windows.Forms.BindingSource(this.components);
+            this.bsServiceCenter = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEngineers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -61,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEngineers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsListOfEngineers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -124,6 +126,8 @@
             this.grdEngineers.Location = new System.Drawing.Point(12, 12);
             this.grdEngineers.MainView = this.grvEngineers;
             this.grdEngineers.Name = "grdEngineers";
+            this.grdEngineers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repManager});
             this.grdEngineers.Size = new System.Drawing.Size(645, 330);
             this.grdEngineers.TabIndex = 0;
             this.grdEngineers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -138,6 +142,7 @@
             this.colSallaryPerMonth});
             this.grvEngineers.GridControl = this.grdEngineers;
             this.grvEngineers.Name = "grvEngineers";
+            this.grvEngineers.OptionsBehavior.Editable = false;
             // 
             // colName
             // 
@@ -157,11 +162,19 @@
             // 
             // colManagerID
             // 
-            this.colManagerID.Caption = "Manager ID";
-            this.colManagerID.FieldName = "ManagerID";
+            this.colManagerID.Caption = "Manager ";
+            this.colManagerID.ColumnEdit = this.repManager;
+            this.colManagerID.FieldName = "Name";
             this.colManagerID.Name = "colManagerID";
             this.colManagerID.Visible = true;
             this.colManagerID.VisibleIndex = 2;
+            // 
+            // repManager
+            // 
+            this.repManager.AutoHeight = false;
+            this.repManager.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repManager.Name = "repManager";
             // 
             // colSallaryPerMonth
             // 
@@ -252,6 +265,7 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdEngineers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvEngineers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -260,7 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEngineers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsListOfEngineers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -287,10 +301,11 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private BindingSource bsEngineers;
-        private BindingSource bsListOfEngineers;
+        private BindingSource bsServiceCenter;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colSurname;
         private DevExpress.XtraGrid.Columns.GridColumn colManagerID;
         private DevExpress.XtraGrid.Columns.GridColumn colSallaryPerMonth;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repManager;
     }
 }
