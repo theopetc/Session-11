@@ -47,7 +47,15 @@ namespace Session_11
             serviceCenter = storageService.GetSeviceCenter();
             bsCustomers.DataSource = serviceCenter.Customers;
             bsCars.DataSource = serviceCenter.Cars;
-            bsManagers.DataSource = serviceCenter.Managers;            
+            bsManagers.DataSource = serviceCenter.Managers;
+            
+            SetDataBindings();
+        }
+        private void SetDataBindings()
+        {
+            ctrlCar.DataBindings.Add(new Binding("EditValue", bsCars, "Brand", true));
+            ctrlCustomer.DataBindings.Add(new Binding("EditValue", bsCustomers, "Surname", true));
+            ctrlManager.DataBindings.Add(new Binding("EditValue", bsManagers, "Name", true));           
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -60,7 +68,7 @@ namespace Session_11
         private void SaveTransaction()
         {
             if (_state == State.New)
-            {
+            {                
                 ((List<Transaction>)_bindingSource.DataSource).Add(_transaction);
             }
             else
@@ -71,5 +79,9 @@ namespace Session_11
 
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

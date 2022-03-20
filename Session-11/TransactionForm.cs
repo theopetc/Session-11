@@ -43,8 +43,7 @@ namespace Session_11
 
             serviceCenter.Transactions = bsTransactions.DataSource as List<Transaction>;
 
-            storageService.SaveServiceCenter(serviceCenter);
-            //serviceCenter = storageService.GetSeviceCenter();
+            storageService.SaveServiceCenter(serviceCenter);            
             editForm.ShowDialog();
             grvTransactions.RefreshData();
         }
@@ -60,10 +59,11 @@ namespace Session_11
             var open = new OpenForm();            
             open.PopulateCustomer(repCustomer);
             open.PopulateCar(repCar);
-            open.PopulateManager(repManager);            
+            open.PopulateManager(repManager);
+            
 
         }
-
+        
         private void btnShow_Click(object sender, EventArgs e)
         {
             EditData();

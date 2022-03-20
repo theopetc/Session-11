@@ -54,9 +54,11 @@ namespace Session_11
 
             foreach (var item in serviceCenter.Customers)
                 customer.Add(item);
+
             lookup.DataSource = customer;
-            lookup.DisplayMember = "Key";
-            lookup.ValueMember = "Value";
+            //lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+            lookup.DisplayMember = "Name";
+            lookup.ValueMember = "ID";
         }
         public void PopulateCar(RepositoryItemLookUpEdit lookup)
         {
