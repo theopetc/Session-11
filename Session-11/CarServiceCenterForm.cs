@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using Services;
 
 namespace Session_11
 {
@@ -15,14 +16,16 @@ namespace Session_11
     public partial class CarServiceCenterForm : DevExpress.XtraEditors.XtraForm 
     {
         OpenForm openF = new OpenForm();
-        public CarServiceCenterForm()
+        AuthenticationService _authService;
+        public CarServiceCenterForm(AuthenticationService authenticationService)
         {
+            _authService = authenticationService;
             InitializeComponent();
         }
 
         private void CarServiceCenterForm_Load(object sender, EventArgs e)
         {
-
+            labelUsername.Text = $"Username : {_authService.Username}";
         }
 
         private void editCustomer_Click(object sender, EventArgs e)
@@ -55,6 +58,17 @@ namespace Session_11
 
 
 
+
+        private void OnFormClosed(object sender, FormClosedEventArgs e)
+        {
+            _authService.LoginForm.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _authService.LoginForm.Show();
+            this.Close();
+        }
     }
 
 }
