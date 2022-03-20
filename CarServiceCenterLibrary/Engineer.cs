@@ -15,5 +15,10 @@ namespace CarServiceCenterLibrary
         {
             ManagerID = managerID;            
         }
+
+        public Engineer()
+        {
+
+        }
     }
 }
