@@ -44,6 +44,12 @@ namespace Session_11
         {
             openF.Open<ServiceTaskForm>();
         }
+        private void editEngineer_Click(object sender, EventArgs e)
+        {
+            openF.Open<EngineerForm>();
+        }
+
+        
     }
 
 }
