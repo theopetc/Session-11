@@ -1,5 +1,6 @@
 ﻿using CarServiceCenterLibrary;
 using DevExpress.XtraEditors;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,68 +18,101 @@ namespace Session_11
 {
     public partial class CarForm : DevExpress.XtraEditors.XtraForm
     {
-        public const string FILE_NAME = "storage.json";
+        OpenForm openF = new OpenForm();
+        ServiceCenter serviceCenter;
+        public readonly StorageService storageService = new StorageService();
+
         public CarForm()
         {
             InitializeComponent();      
         }
+        private void CarForm_Load(object sender, EventArgs e)
+        {
+            serviceCenter = storageService.GetSeviceCenter();
+            bsCar.DataSource = serviceCenter.Cars;
+        }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+            NewData();
+            
+        }
 
-            CarF carF = new CarF(serviceCenter);
-            carF.ShowDialog();
+        private void NewData()
+        {
+
+            var car = new Car();
+            var editForm = openF.GetForm<CarF>(State.New, car, bsCar);
+            serviceCenter.Cars = bsCar.DataSource as List<Car>;
+            storageService.SaveServiceCenter(serviceCenter);
+
+            editForm.ShowDialog();
             grvCars.RefreshData();
         }
-        
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            DeleteData();
+            
+        }
+
+        private void DeleteData()
+        {
             var res = MessageBox.Show(this, "Are you sure you want to delete the selected Car?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (res != DialogResult.Yes)
-                return;
-            var car = bsCar.Current as Car;
-            bsCar.Remove(car);
-            //SaveData<CarF>();
+            if (res == DialogResult.Yes)
+            {
+                var selectedCar = GetSelectedCar();
+                ((List<Car>)bsCar.DataSource).Remove(selectedCar);
+                grvCars.RefreshData();
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
-            var car = bsCar.Current as Car;
-            
-            CarF carForm = new CarF();
-            carForm.ShowDialog();
-            grvCars.RefreshData();
+            EditaData();
+        }
+
+        private void EditaData()
+        {
+            var car = GetSelectedCar();
+            if (car != null)
+            {
+                var editForm = openF.GetForm<CarF>(State.Edit, car, bsCar);
+                editForm.ShowDialog();
+                grvCars.RefreshData();
+
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            serviceCenter.Cars = bsCar.DataSource as List<Car>;
+            storageService.SaveServiceCenter(serviceCenter);
+            this.Close();
         }
-        private void SaveData<T>() where T : Form, new()
+        private void EditData()
         {
-            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
-            string json = JsonSerializer.Serialize(serviceCenter);
-            File.WriteAllText(FILE_NAME, json);
-        }
+            var car = GetSelectedCar();
+            if (car != null)
+            {
+                var editForm = openF.GetForm<CarF>(State.Edit, car, bsCar);
+                editForm.ShowDialog();
+                grvCars.RefreshData();
 
-        private void CarForm_Load(object sender, EventArgs e)
+            }
+        }
+        private Car? GetSelectedCar()
         {
-
+            var selectedIndexes = grvCars.GetSelectedRows();
+            if (selectedIndexes != null)
+            {
+                return grvCars.GetRow(selectedIndexes[0]) as Car;
+            }
+            else { return null; }   
+               
         }
-        //private void PopulateCustomers()
-        //{
-        //    string s = File.ReadAllText(FILE_NAME);
-        //    var serviceCenter = (ServiceCenter)JsonSerializer.Deserialize(s, typeof(ServiceCenter));
 
-        //    bsServiceCenter.DataSource = serviceCenter;
 
-        //    bsCar.DataSource = bsServiceCenter;
-        //    bsCar.DataMember = "Car";
 
-        //    //grvCars.DataSource = bsCar;
-        //}
     }
 }

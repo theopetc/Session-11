@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarServiceCenterLibrary
 {
+    [Serializable]
     public class Car
     {
         public Guid ID { get; set; }
