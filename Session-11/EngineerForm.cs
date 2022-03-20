@@ -33,7 +33,7 @@ namespace Session_11
         private void btnClose_Click(object sender, EventArgs e)
         {
             SaveData();
-            this.DialogResult = DialogResult.OK;            
+            this.Close();                      
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace Session_11
             repManager.DataSource = ServiceCenter.Managers;
             repManager.Columns.Add(new LookUpColumnInfo("Name", "Name"));
 
-            repManager.DisplayMember = "ID";
+            repManager.DisplayMember = "Name";
             repManager.ValueMember = "ID";
         }
 
