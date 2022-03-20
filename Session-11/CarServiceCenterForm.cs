@@ -47,6 +47,17 @@ namespace Session_11
         {
             openF.Open<ServiceTaskForm>();
         }
+        private void editEngineer_Click(object sender, EventArgs e)
+        {
+            openF.Open<EngineerForm>();
+        }
+        private void newTrasaction_Click(object sender, EventArgs e)
+        {
+            openF.Open<TransactionForm>();
+        }
+
+
+
 
         private void OnFormClosed(object sender, FormClosedEventArgs e)
         {

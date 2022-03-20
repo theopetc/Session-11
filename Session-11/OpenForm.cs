@@ -9,12 +9,18 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors;
 using CarServiceCenterLibrary;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraEditors.Controls;
+using Services;
 
 namespace Session_11
 {
     public class OpenForm
     {
-
+        ServiceCenter serviceCenter;
+        public readonly StorageService storageService = new StorageService();
+        Customer _customer;
+        
         public OpenForm()
         {
 
@@ -38,5 +44,36 @@ namespace Session_11
             tin.DataBindings.Add(new Binding("EditValue", customer, "TIN", true));
 
         }
+
+        public void PopulateCustomer(RepositoryItemLookUpEdit lookup)
+        {
+            //Dictionary<string, Guid> customer = new Dictionary<string, Guid>();
+            serviceCenter = storageService.GetSeviceCenter();
+            //var _customer = serviceCenter.Customers;
+            var customer = new List<Customer>();
+
+            foreach (var item in serviceCenter.Customers)
+                customer.Add(item);
+            lookup.DataSource = customer;
+            lookup.DisplayMember = "Key";
+            lookup.ValueMember = "Value";
+        }
+        public void PopulateCar(RepositoryItemLookUpEdit lookup)
+        {
+            serviceCenter = storageService.GetSeviceCenter();
+            var car = serviceCenter.Cars;
+            lookup.DataSource = car;
+            lookup.DisplayMember = "Brand";
+            lookup.ValueMember = "CarID";
+        }
+        public void PopulateManager(RepositoryItemLookUpEdit lookup)
+        {
+            serviceCenter = storageService.GetSeviceCenter();
+            var manager = serviceCenter.Managers;
+            lookup.DataSource = manager;
+            lookup.DisplayMember = "Surname";
+            lookup.ValueMember = "ManagerID";
+        }
+        
     }
 }
