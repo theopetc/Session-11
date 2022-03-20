@@ -47,16 +47,16 @@ namespace Session_11
 
         public void PopulateCustomer(RepositoryItemLookUpEdit lookup)
         {
-            Dictionary<string, Guid> customer = new Dictionary<string, Guid>();
+            //Dictionary<string, Guid> customer = new Dictionary<string, Guid>();
             serviceCenter = storageService.GetSeviceCenter();
             //var _customer = serviceCenter.Customers;
-            //var customer = new List<Customer>();
+            var customer = new List<Customer>();
 
             foreach (var item in serviceCenter.Customers)
-                customer.Add(item.Surname, item.ID);
+                customer.Add(item);
             lookup.DataSource = customer;
-            lookup.DisplayMember = "Value";
-            lookup.ValueMember = "Key";
+            lookup.DisplayMember = "Key";
+            lookup.ValueMember = "Value";
         }
         public void PopulateCar(RepositoryItemLookUpEdit lookup)
         {
@@ -74,5 +74,6 @@ namespace Session_11
             lookup.DisplayMember = "Surname";
             lookup.ValueMember = "ManagerID";
         }
+        
     }
 }

@@ -164,7 +164,7 @@
             // 
             this.colManager.Caption = "Manager ";
             this.colManager.ColumnEdit = this.repManager;
-            this.colManager.FieldName = "Name";
+            this.colManager.FieldName = "ManagerID";
             this.colManager.Name = "colManager";
             this.colManager.Visible = true;
             this.colManager.VisibleIndex = 2;
@@ -172,8 +172,6 @@
             // repManager
             // 
             this.repManager.AutoHeight = false;
-            this.repManager.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repManager.Name = "repManager";
             // 
             // colSallaryPerMonth

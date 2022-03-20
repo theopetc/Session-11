@@ -47,7 +47,7 @@ namespace Session_11
             serviceCenter = storageService.GetSeviceCenter();
             bsCustomers.DataSource = serviceCenter.Customers;
             bsCars.DataSource = serviceCenter.Cars;
-            bsManagers.DataSource = serviceCenter.Managers;
+            bsManagers.DataSource = serviceCenter.Managers;            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
