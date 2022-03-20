@@ -17,8 +17,7 @@ using System.Windows.Forms;
 namespace Session_11
 {
     public partial class EngineerEditForm : DevExpress.XtraEditors.XtraForm
-    {
-        //private const string FILE_NAME = "engineers.json";
+    {        
         public readonly StorageService storageService = new StorageService();
         public ServiceCenter ServiceCenter;
         private Engineer _engineer;
@@ -64,20 +63,8 @@ namespace Session_11
         
         private void PopulateEngineers()
         {
-            //TODO: to dictionary paizei na einai axrhsto?
-            //IDictionary<Guid, string> managersAndID = new Dictionary<Guid, string>();
-            
-            //for (int i = 0; i < ServiceCenter.Managers.Count; i++)
-            //{
-            //    managersAndID.Add(ServiceCenter.Managers[i].ID, ServiceCenter.Managers[i].Name);
-            //}            
+            SetCtrlManager();
 
-            ctrlManager.Properties.DataSource = ServiceCenter.Managers;
-            ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("Name", "Name"));
-            ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("ID", "ID"));
-            ctrlManager.Properties.DisplayMember = "Name";
-            ctrlManager.Properties.ValueMember = "ID";
-            
             if (_engineer == null)
             {
                 pressedNew = true;
@@ -85,9 +72,17 @@ namespace Session_11
                 ServiceCenter.Engineers.Add(_engineer);
                 bsEngineers.DataSource = _engineer;
             }
-            bsEngineers.DataSource = _engineer;                     
+            bsEngineers.DataSource = _engineer;
         }
 
+        private void SetCtrlManager()
+        {
+            ctrlManager.Properties.DataSource = ServiceCenter.Managers;
+            ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+            ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("Surname", "Surname"));
+            ctrlManager.Properties.DisplayMember = "Name";
+            ctrlManager.Properties.ValueMember = "ID";
+        }
 
         private void SetDataBindings()
         {            
@@ -100,10 +95,8 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            storageService.SaveServiceCenter(ServiceCenter);
-            //string json = JsonSerializer.Serialize(ServiceCenter);
-            //File.WriteAllText(FILE_NAME, json);
-            DialogResult = DialogResult.OK;
+            storageService.SaveServiceCenter(ServiceCenter);            
+            DialogResult = DialogResult.OK;            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -111,17 +104,17 @@ namespace Session_11
             if (pressedNew)
             {
                 ServiceCenter.Engineers.Remove(_engineer);
-                this.DialogResult = DialogResult.Cancel;                
+                this.DialogResult = DialogResult.Cancel;
             }
             else
-            {                
+            {
                 int index = ServiceCenter.Engineers.IndexOf(_engineer);
 
                 ServiceCenter.Engineers.RemoveAt(index);
                 ServiceCenter.Engineers.Insert(index, _engineerBackup);
-                
+
                 this.DialogResult = DialogResult.Cancel;
-            }                                    
+            }
         }        
     }
 }

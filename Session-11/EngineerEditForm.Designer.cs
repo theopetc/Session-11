@@ -218,7 +218,7 @@
             this.ClientSize = new System.Drawing.Size(504, 420);
             this.Controls.Add(this.layoutControl1);
             //this.Name = "EngineerEditForm";
-            this.Text = "EngineerEditForm";            
+            this.Text = "EngineerEditForm";
             this.Load += new System.EventHandler(this.EngineerEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

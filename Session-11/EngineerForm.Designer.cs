@@ -38,7 +38,7 @@
             this.grvEngineers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSurname = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colManagerID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colManager = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repManager = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colSallaryPerMonth = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -138,7 +138,7 @@
             this.grvEngineers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colName,
             this.colSurname,
-            this.colManagerID,
+            this.colManager,
             this.colSallaryPerMonth});
             this.grvEngineers.GridControl = this.grdEngineers;
             this.grvEngineers.Name = "grvEngineers";
@@ -160,14 +160,14 @@
             this.colSurname.Visible = true;
             this.colSurname.VisibleIndex = 1;
             // 
-            // colManagerID
+            // colManager
             // 
-            this.colManagerID.Caption = "Manager ";
-            this.colManagerID.ColumnEdit = this.repManager;
-            this.colManagerID.FieldName = "Name";
-            this.colManagerID.Name = "colManagerID";
-            this.colManagerID.Visible = true;
-            this.colManagerID.VisibleIndex = 2;
+            this.colManager.Caption = "Manager ";
+            this.colManager.ColumnEdit = this.repManager;
+            this.colManager.FieldName = "Name";
+            this.colManager.Name = "colManager";
+            this.colManager.Visible = true;
+            this.colManager.VisibleIndex = 2;
             // 
             // repManager
             // 
@@ -304,7 +304,7 @@
         private BindingSource bsServiceCenter;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colSurname;
-        private DevExpress.XtraGrid.Columns.GridColumn colManagerID;
+        private DevExpress.XtraGrid.Columns.GridColumn colManager;
         private DevExpress.XtraGrid.Columns.GridColumn colSallaryPerMonth;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repManager;
     }
