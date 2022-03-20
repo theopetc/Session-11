@@ -59,8 +59,32 @@ namespace Session_11
             PopulateEngineers();
             SetDataBindings();
             
+        }                                      
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            storageService.SaveServiceCenter(ServiceCenter);            
+            DialogResult = DialogResult.OK;            
         }
-        
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (pressedNew)
+            {
+                ServiceCenter.Engineers.Remove(_engineer);
+                this.DialogResult = DialogResult.Cancel;
+            }
+            else
+            {
+                int index = ServiceCenter.Engineers.IndexOf(_engineer);
+
+                ServiceCenter.Engineers.RemoveAt(index);
+                ServiceCenter.Engineers.Insert(index, _engineerBackup);
+
+                this.DialogResult = DialogResult.Cancel;
+            }
+        }
+
         private void PopulateEngineers()
         {
             SetCtrlManager();
@@ -85,36 +109,11 @@ namespace Session_11
         }
 
         private void SetDataBindings()
-        {            
-            ctrlName.DataBindings.Add(new Binding("EditValue", bsEngineers, "Name", true));            
-            ctrlSurname.DataBindings.Add(new Binding("EditValue", bsEngineers, "Surname", true));            
-            ctrlManager.DataBindings.Add(new Binding("EditValue", bsEngineers, "ManagerID", true));            
-            ctrlSallary.DataBindings.Add(new Binding("EditValue", bsEngineers, "SallaryPerMonth", true));            
-        }
-                      
-
-        private void btnSave_Click(object sender, EventArgs e)
         {
-            storageService.SaveServiceCenter(ServiceCenter);            
-            DialogResult = DialogResult.OK;            
+            ctrlName.DataBindings.Add(new Binding("EditValue", bsEngineers, "Name", true));
+            ctrlSurname.DataBindings.Add(new Binding("EditValue", bsEngineers, "Surname", true));
+            ctrlManager.DataBindings.Add(new Binding("EditValue", bsEngineers, "ManagerID", true));
+            ctrlSallary.DataBindings.Add(new Binding("EditValue", bsEngineers, "SallaryPerMonth", true));
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            if (pressedNew)
-            {
-                ServiceCenter.Engineers.Remove(_engineer);
-                this.DialogResult = DialogResult.Cancel;
-            }
-            else
-            {
-                int index = ServiceCenter.Engineers.IndexOf(_engineer);
-
-                ServiceCenter.Engineers.RemoveAt(index);
-                ServiceCenter.Engineers.Insert(index, _engineerBackup);
-
-                this.DialogResult = DialogResult.Cancel;
-            }
-        }        
     }
 }

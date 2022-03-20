@@ -37,7 +37,7 @@
             this.btnAddTask = new DevExpress.XtraEditors.SimpleButton();
             this.grdTransactionsLines = new DevExpress.XtraGrid.GridControl();
             this.grvTransactionLines = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtTotalPrice = new DevExpress.XtraEditors.TextEdit();
             this.ctrlManager = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bsManagers = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit3View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -68,7 +68,7 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionsLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).BeginInit();
@@ -105,7 +105,7 @@
             this.layoutControl1.Controls.Add(this.btnDeleteTask);
             this.layoutControl1.Controls.Add(this.btnAddTask);
             this.layoutControl1.Controls.Add(this.grdTransactionsLines);
-            this.layoutControl1.Controls.Add(this.textEdit1);
+            this.layoutControl1.Controls.Add(this.txtTotalPrice);
             this.layoutControl1.Controls.Add(this.ctrlManager);
             this.layoutControl1.Controls.Add(this.ctrlCar);
             this.layoutControl1.Controls.Add(this.ctrlCustomer);
@@ -179,14 +179,14 @@
             this.grvTransactionLines.GridControl = this.grdTransactionsLines;
             this.grvTransactionLines.Name = "grvTransactionLines";
             // 
-            // textEdit1
+            // txtTotalPrice
             // 
-            this.textEdit1.Location = new System.Drawing.Point(74, 108);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.ReadOnly = true;
-            this.textEdit1.Size = new System.Drawing.Size(267, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 5;
+            this.txtTotalPrice.Location = new System.Drawing.Point(74, 108);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.Properties.ReadOnly = true;
+            this.txtTotalPrice.Size = new System.Drawing.Size(267, 20);
+            this.txtTotalPrice.StyleController = this.layoutControl1;
+            this.txtTotalPrice.TabIndex = 5;
             // 
             // ctrlManager
             // 
@@ -320,7 +320,7 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.textEdit1;
+            this.layoutControlItem5.Control = this.txtTotalPrice;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(333, 24);
@@ -442,7 +442,7 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionsLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).EndInit();
@@ -486,7 +486,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtTotalPrice;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;

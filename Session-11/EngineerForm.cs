@@ -74,16 +74,16 @@ namespace Session_11
 
             grdEngineers.DataSource = bsEngineers;
             
-            grvEngineers.RefreshData();
+            grvEngineers.RefreshData();            
         }
 
         private void SetRepManager()
         {
-            repManager.DataSource = ServiceCenter.Managers;
+            repManager.DataSource = ServiceCenter.Managers;                        
             repManager.Columns.Add(new LookUpColumnInfo("Name", "Name"));
-
+            
             repManager.DisplayMember = "Name";
-            repManager.ValueMember = "ID";
+            repManager.ValueMember = "ID";            
         }
 
         private void LoadData()

@@ -40,8 +40,11 @@ namespace Session_11
         {
             var transaction = new Transaction();
             var editForm = openF.GetForm<NewTransaction>(State.New, transaction, bsTransactions);
+
             serviceCenter.Transactions = bsTransactions.DataSource as List<Transaction>;
+
             storageService.SaveServiceCenter(serviceCenter);
+            //serviceCenter = storageService.GetSeviceCenter();
             editForm.ShowDialog();
             grvTransactions.RefreshData();
         }
@@ -54,10 +57,10 @@ namespace Session_11
         }
         private void PopulateControls()
         {
-            var open = new OpenForm();
+            var open = new OpenForm();            
             open.PopulateCustomer(repCustomer);
             open.PopulateCar(repCar);
-            open.PopulateManager(repManager);
+            open.PopulateManager(repManager);            
 
         }
 
@@ -71,6 +74,7 @@ namespace Session_11
             if (transaction != null)
             {
                 var editForm = openF.GetForm<NewTransaction>(State.Edit, transaction, bsTransactions);
+                
                 editForm.ShowDialog();
                 grvTransactions.RefreshData();
 
