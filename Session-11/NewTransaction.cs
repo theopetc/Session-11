@@ -24,7 +24,6 @@ namespace Session_11
 
         public NewTransaction(State state, Transaction transaction, BindingSource bindingSource)
         {
-
             _state = state;
             _bindingSource = bindingSource;
             _transaction = new Transaction()
@@ -38,8 +37,6 @@ namespace Session_11
                 TransactionLines = transaction.TransactionLines
             };
             InitializeComponent();
-
-
         }
 
         private void NewTransanction_Load(object sender, EventArgs e)
@@ -48,7 +45,7 @@ namespace Session_11
             bsCustomers.DataSource = serviceCenter.Customers;
             bsCars.DataSource = serviceCenter.Cars;
             bsManagers.DataSource = serviceCenter.Managers;
-            
+
             SetDataBindings();
         }
         private void SetDataBindings()

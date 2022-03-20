@@ -46,17 +46,14 @@ namespace Session_11
         }
 
         public void PopulateCustomer(RepositoryItemLookUpEdit lookup)
-        {
-            //Dictionary<string, Guid> customer = new Dictionary<string, Guid>();
-            serviceCenter = storageService.GetSeviceCenter();
-            //var _customer = serviceCenter.Customers;
+        {            
+            serviceCenter = storageService.GetSeviceCenter();            
             var customer = new List<Customer>();
 
             foreach (var item in serviceCenter.Customers)
                 customer.Add(item);
 
-            lookup.DataSource = customer;
-            //lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+            lookup.DataSource = customer;            
             lookup.DisplayMember = "Name";
             lookup.ValueMember = "ID";
         }

@@ -32,7 +32,7 @@ namespace Session_11
 
         private void TransactionForm_Load(object sender, EventArgs e)
         {
-            serviceCenter = storageService.GetSeviceCenter();
+            serviceCenter = storageService.GetSeviceCenter();            
             bsTransactions.DataSource = serviceCenter.Transactions;
             PopulateControls();
         }
