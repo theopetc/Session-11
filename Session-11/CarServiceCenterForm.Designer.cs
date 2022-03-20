@@ -150,8 +150,9 @@
             // newTrasaction
             // 
             this.newTrasaction.Name = "newTrasaction";
-            this.newTrasaction.Size = new System.Drawing.Size(103, 22);
+            this.newTrasaction.Size = new System.Drawing.Size(180, 22);
             this.newTrasaction.Text = "Edit...";
+            this.newTrasaction.Click += new System.EventHandler(this.newTrasaction_Click);
             // 
             // monthlyLedgerToolStripMenuItem
             // 

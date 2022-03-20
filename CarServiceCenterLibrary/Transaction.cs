@@ -15,13 +15,19 @@ namespace CarServiceCenterLibrary
         public Guid ManagerID { get; set; }
         public decimal TotalPrice { get; set; }
         public List<TransactionLine> TransactionLines { get; set; }
-        public Transaction(Guid customerID, Guid carID, Guid managerID)
+        public Transaction()
         {            
             ID = Guid.NewGuid();
             Date = DateTime.Now;
+        }
+        public Transaction(Guid customerID, Guid carID, Guid managerID, DateTime date)
+        {
+            ID = Guid.NewGuid();
+            Date = date;
             CustomerID = customerID;
             CarID = carID;
             ManagerID = managerID;
+            TransactionLines = new List<TransactionLine>();
         }
     }
 }
