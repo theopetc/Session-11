@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CarServiceCenterLibrary
 {
     public class MonthlyLedger
@@ -16,8 +17,8 @@ namespace CarServiceCenterLibrary
 
         public MonthlyLedger()
         {
-
         }
+        
     }
 
 

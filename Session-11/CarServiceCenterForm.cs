@@ -48,8 +48,13 @@ namespace Session_11
         {
             openF.Open<EngineerForm>();
         }
+        private void newTrasaction_Click(object sender, EventArgs e)
+        {
+            openF.Open<TransactionForm>();
+        }
 
-        
+
+
     }
 
 }

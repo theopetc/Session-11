@@ -46,6 +46,8 @@ namespace Session_11
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            serviceCenter.ServiceTasks = bsServiceTasks.DataSource as List<ServiceTask>;
+            storageService.SaveServiceCenter(serviceCenter);
             this.Close();
         }
         private void grdServiceTasks_Click(object sender, EventArgs e)

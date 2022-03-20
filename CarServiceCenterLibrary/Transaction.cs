@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace CarServiceCenterLibrary
 {
     [Serializable]
+    
     public class Transaction
     {
         public Guid ID { get; set; }
@@ -16,9 +17,20 @@ namespace CarServiceCenterLibrary
         public Guid ManagerID { get; set; }
         public decimal TotalPrice { get; set; }
         public List<TransactionLine> TransactionLines { get; set; }
+<<<<<<< HEAD
+        public Transaction()
+        {            
+            ID = Guid.NewGuid();
+            Date = DateTime.Now;
+        }
+        public Transaction(Guid customerID, Guid carID, Guid managerID, DateTime date)
+        {
+            ID = Guid.NewGuid();
+=======
         public Transaction(Guid customerID, Guid carID, Guid managerID, DateTime date)
         {   
             ID = Guid.NewGuid();
+>>>>>>> 603a9feaa1237e266ddc966af05ff3d5b5d5d6d6
             Date = date;
             CustomerID = customerID;
             CarID = carID;
