@@ -24,89 +24,80 @@ namespace Session_11
             InitializeComponent();
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            NewData();
-
-        }
 
         private void TransactionForm_Load(object sender, EventArgs e)
         {
-            serviceCenter = storageService.GetSeviceCenter();
+            LoadData();
             bsTransactions.DataSource = serviceCenter.Transactions;
             PopulateControls();
         }
-        private void NewData()
+        private void btnNew_Click(object sender, EventArgs e)
         {
-            var transaction = new Transaction();
-            var editForm = openF.GetForm<NewTransaction>(State.New, transaction, bsTransactions);
-
-            serviceCenter.Transactions = bsTransactions.DataSource as List<Transaction>;
-
-            storageService.SaveServiceCenter(serviceCenter);
-            //serviceCenter = storageService.GetSeviceCenter();
-            editForm.ShowDialog();
-            grvTransactions.RefreshData();
+            NewData();
+            SaveData();
+        
         }
-
-        private void btnSaveClose_Click(object sender, EventArgs e)
-        {
-            serviceCenter.Transactions = bsTransactions.DataSource as List<Transaction>;
-            storageService.SaveServiceCenter(serviceCenter);
-            this.Close();
-        }
-        private void PopulateControls()
-        {
-            var open = new OpenForm();            
-            open.PopulateCustomer(repCustomer);
-            open.PopulateCar(repCar);
-            open.PopulateManager(repManager);            
-
-        }
-
-        private void btnShow_Click(object sender, EventArgs e)
-        {
-            EditData();
-        }
-        private void EditData()
-        {
-            var transaction = GetSelectedTransaction();
-            if (transaction != null)
-            {
-                var editForm = openF.GetForm<NewTransaction>(State.Edit, transaction, bsTransactions);
-                
-                editForm.ShowDialog();
-                grvTransactions.RefreshData();
-
-            }
-        }
-        private Transaction? GetSelectedTransaction()
-        {
-
-            var selectedIndexes = grvTransactions.GetSelectedRows();
-            if (selectedIndexes is not null)
-            {
-                return grvTransactions.GetRow(selectedIndexes[0]) as Transaction;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DeleteData();
         }
+        private void btnSaveClose_Click(object sender, EventArgs e)
+        {
+            SaveData();
+            this.Close();
+        }
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            EditData();
+        }
+
+        private void NewData()
+        {
+            var transactions = bsServiceCenter.Current as ServiceCenter;
+            var editForm = new NewTransaction(transactions);
+
+            editForm.ShowDialog();
+            grvTransactions.RefreshData();
+        }
+        private void PopulateControls()
+        {          
+            openF.PopulateCustomer(repCustomer);
+            openF.PopulateCar(repCar);
+            openF.PopulateManager(repManager);
+            bsServiceCenter.DataSource = serviceCenter;
+            bsTransactions.DataSource = bsServiceCenter;
+            bsTransactions.DataMember = "Transactions";
+            grdTransactions.DataSource = bsTransactions;
+            grvTransactions.RefreshData();
+
+        }
+        private void EditData()
+        {
+            var listOfTransactions = bsServiceCenter.Current as ServiceCenter;
+            var transactions = bsTransactions.Current as Transaction;
+            NewTransaction editForm = new NewTransaction(listOfTransactions, transactions);
+            editForm.ShowDialog();
+            grvTransactions.RefreshData();
+        }
+
         private void DeleteData()
         {
-            var result = MessageBox.Show("Are you sure that you want to delete this Transaction?", "Delete Confirmation", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                var selectedTransaction = GetSelectedTransaction();
-                ((List<Transaction>)bsTransactions.DataSource).Remove(selectedTransaction);
-                grvTransactions.RefreshData();
-            }
+            var res = MessageBox.Show(this, "Are you sure you want to delete the selected Transaction?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res != DialogResult.Yes)
+                return;
+            var transaction = bsTransactions.Current as Transaction;
+            bsTransactions.Remove(transaction);
+
+            SaveData();
         }
+        private void LoadData()
+        {
+            serviceCenter = storageService.GetSeviceCenter();
+        }
+        private void SaveData()
+        {
+            storageService.SaveServiceCenter(serviceCenter);
+        }
+
     }
 }

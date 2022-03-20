@@ -52,6 +52,7 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bsServiceCenter = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactions)).BeginInit();
@@ -67,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -127,8 +129,6 @@
             // 
             // grdTransactions
             // 
-            this.grdTransactions.DataMember = null;
-            this.grdTransactions.DataSource = this.bsTransactions;
             this.grdTransactions.Location = new System.Drawing.Point(12, 12);
             this.grdTransactions.MainView = this.grvTransactions;
             this.grdTransactions.Name = "grdTransactions";
@@ -181,7 +181,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repCustomer.DisplayMember = "Surname";
             this.repCustomer.Name = "repCustomer";
-            this.repCustomer.ValueMember = "CustomerID";
+            this.repCustomer.ValueMember = "ID";
             // 
             // colCar
             // 
@@ -199,7 +199,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repCar.DisplayMember = "Brand";
             this.repCar.Name = "repCar";
-            this.repCar.ValueMember = "CarID";
+            this.repCar.ValueMember = "ID";
             // 
             // colManager
             // 
@@ -217,7 +217,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repManager.DisplayMember = "Surname";
             this.repManager.Name = "repManager";
-            this.repManager.ValueMember = "ManagerID";
+            this.repManager.ValueMember = "ID";
             // 
             // colPrice
             // 
@@ -319,6 +319,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,5 +349,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCar;
         private DevExpress.XtraGrid.Columns.GridColumn colManager;
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;
+        private BindingSource bsServiceCenter;
     }
 }

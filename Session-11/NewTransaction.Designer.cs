@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.ctrlManager = new DevExpress.XtraEditors.LookUpEdit();
+            this.ctrlCar = new DevExpress.XtraEditors.LookUpEdit();
+            this.ctrlCustomer = new DevExpress.XtraEditors.LookUpEdit();
+            this.bsTransactions = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -38,19 +42,7 @@
             this.grdTransactionsLines = new DevExpress.XtraGrid.GridControl();
             this.grvTransactionLines = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtTotalPrice = new DevExpress.XtraEditors.TextEdit();
-            this.ctrlManager = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bsManagers = new System.Windows.Forms.BindingSource(this.components);
-            this.searchLookUpEdit3View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.ctrlCar = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bsCars = new System.Windows.Forms.BindingSource(this.components);
-            this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.ctrlCustomer = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bsCustomers = new System.Windows.Forms.BindingSource(this.components);
-            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -64,24 +56,19 @@
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlCar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionsLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlCar.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCars)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
@@ -95,10 +82,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.ctrlManager);
+            this.layoutControl1.Controls.Add(this.ctrlCar);
+            this.layoutControl1.Controls.Add(this.ctrlCustomer);
             this.layoutControl1.Controls.Add(this.dateTimePicker1);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.btnSave);
@@ -106,9 +99,6 @@
             this.layoutControl1.Controls.Add(this.btnAddTask);
             this.layoutControl1.Controls.Add(this.grdTransactionsLines);
             this.layoutControl1.Controls.Add(this.txtTotalPrice);
-            this.layoutControl1.Controls.Add(this.ctrlManager);
-            this.layoutControl1.Controls.Add(this.ctrlCar);
-            this.layoutControl1.Controls.Add(this.ctrlCustomer);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -117,6 +107,36 @@
             this.layoutControl1.Size = new System.Drawing.Size(863, 422);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // ctrlManager
+            // 
+            this.ctrlManager.Location = new System.Drawing.Point(74, 84);
+            this.ctrlManager.Name = "ctrlManager";
+            this.ctrlManager.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlManager.Size = new System.Drawing.Size(267, 20);
+            this.ctrlManager.StyleController = this.layoutControl1;
+            this.ctrlManager.TabIndex = 4;
+            // 
+            // ctrlCar
+            // 
+            this.ctrlCar.Location = new System.Drawing.Point(74, 60);
+            this.ctrlCar.Name = "ctrlCar";
+            this.ctrlCar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlCar.Size = new System.Drawing.Size(267, 20);
+            this.ctrlCar.StyleController = this.layoutControl1;
+            this.ctrlCar.TabIndex = 3;
+            // 
+            // ctrlCustomer
+            // 
+            this.ctrlCustomer.Location = new System.Drawing.Point(74, 36);
+            this.ctrlCustomer.Name = "ctrlCustomer";
+            this.ctrlCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ctrlCustomer.Size = new System.Drawing.Size(267, 20);
+            this.ctrlCustomer.StyleController = this.layoutControl1;
+            this.ctrlCustomer.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
@@ -135,6 +155,7 @@
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -188,92 +209,11 @@
             this.txtTotalPrice.StyleController = this.layoutControl1;
             this.txtTotalPrice.TabIndex = 5;
             // 
-            // ctrlManager
-            // 
-            this.ctrlManager.EditValue = "";
-            this.ctrlManager.Location = new System.Drawing.Point(74, 84);
-            this.ctrlManager.Name = "ctrlManager";
-            this.ctrlManager.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ctrlManager.Properties.DataSource = this.bsManagers;
-            this.ctrlManager.Properties.DisplayMember = "Surname";
-            this.ctrlManager.Properties.PopupView = this.searchLookUpEdit3View;
-            this.ctrlManager.Properties.ValueMember = "ID";
-            this.ctrlManager.Size = new System.Drawing.Size(267, 20);
-            this.ctrlManager.StyleController = this.layoutControl1;
-            this.ctrlManager.TabIndex = 4;
-            // 
-            // bsManagers
-            // 
-            this.bsManagers.DataSource = typeof(CarServiceCenterLibrary.Manager);
-            // 
-            // searchLookUpEdit3View
-            // 
-            this.searchLookUpEdit3View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit3View.Name = "searchLookUpEdit3View";
-            this.searchLookUpEdit3View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit3View.OptionsView.ShowGroupPanel = false;
-            // 
-            // ctrlCar
-            // 
-            this.ctrlCar.EditValue = "";
-            this.ctrlCar.Location = new System.Drawing.Point(74, 60);
-            this.ctrlCar.Name = "ctrlCar";
-            this.ctrlCar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ctrlCar.Properties.DataSource = this.bsCars;
-            this.ctrlCar.Properties.DisplayMember = "Brand";
-            this.ctrlCar.Properties.PopupView = this.searchLookUpEdit2View;
-            this.ctrlCar.Properties.ValueMember = "ID";
-            this.ctrlCar.Size = new System.Drawing.Size(267, 20);
-            this.ctrlCar.StyleController = this.layoutControl1;
-            this.ctrlCar.TabIndex = 3;
-            // 
-            // bsCars
-            // 
-            this.bsCars.DataSource = typeof(CarServiceCenterLibrary.Car);
-            // 
-            // searchLookUpEdit2View
-            // 
-            this.searchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit2View.Name = "searchLookUpEdit2View";
-            this.searchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
-            // 
-            // ctrlCustomer
-            // 
-            this.ctrlCustomer.EditValue = "";
-            this.ctrlCustomer.Location = new System.Drawing.Point(74, 36);
-            this.ctrlCustomer.Name = "ctrlCustomer";
-            this.ctrlCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ctrlCustomer.Properties.DataSource = this.bsCustomers;
-            this.ctrlCustomer.Properties.DisplayMember = "Surname";
-            this.ctrlCustomer.Properties.PopupView = this.searchLookUpEdit1View;
-            this.ctrlCustomer.Properties.ValueMember = "ID";
-            this.ctrlCustomer.Size = new System.Drawing.Size(267, 20);
-            this.ctrlCustomer.StyleController = this.layoutControl1;
-            this.ctrlCustomer.TabIndex = 2;
-            // 
-            // bsCustomers
-            // 
-            this.bsCustomers.DataSource = typeof(CarServiceCenterLibrary.Customer);
-            // 
-            // searchLookUpEdit1View
-            // 
-            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
             this.layoutControlItem5,
             this.emptySpaceItem2,
             this.emptySpaceItem3,
@@ -286,37 +226,13 @@
             this.layoutControlItem9,
             this.layoutControlItem10,
             this.emptySpaceItem1,
-            this.layoutControlItem11});
+            this.layoutControlItem11,
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(863, 422);
             this.Root.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.ctrlCustomer;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(333, 24);
-            this.layoutControlItem2.Text = "Customer";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(50, 13);
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.ctrlCar;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(333, 24);
-            this.layoutControlItem3.Text = "Car";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(50, 13);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.ctrlManager;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(333, 24);
-            this.layoutControlItem4.Text = "Manager";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(50, 13);
             // 
             // layoutControlItem5
             // 
@@ -429,6 +345,33 @@
             this.layoutControlItem11.Text = "Date";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(50, 13);
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.ctrlCustomer;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(333, 24);
+            this.layoutControlItem1.Text = "Customer";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(50, 13);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.ctrlCar;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(333, 24);
+            this.layoutControlItem2.Text = "Car";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(50, 13);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.ctrlManager;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(333, 24);
+            this.layoutControlItem3.Text = "Manager";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(50, 13);
+            // 
             // NewTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,22 +383,14 @@
             this.Load += new System.EventHandler(this.NewTransanction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlCar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionsLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsManagers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit3View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlCar.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCars)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
@@ -469,6 +404,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -476,16 +414,7 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.SearchLookUpEdit ctrlManager;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit3View;
-        private DevExpress.XtraEditors.SearchLookUpEdit ctrlCar;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit2View;
-        private DevExpress.XtraEditors.SearchLookUpEdit ctrlCustomer;
-        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraEditors.TextEdit txtTotalPrice;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
@@ -505,10 +434,14 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private BindingSource bsCustomers;
-        private BindingSource bsManagers;
-        private BindingSource bsCars;
+        private BindingSource bsTransactions;
         private DateTimePicker dateTimePicker1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraEditors.LookUpEdit ctrlManager;
+        private DevExpress.XtraEditors.LookUpEdit ctrlCar;
+        private DevExpress.XtraEditors.LookUpEdit ctrlCustomer;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

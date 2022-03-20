@@ -47,32 +47,37 @@ namespace Session_11
 
         public void PopulateCustomer(RepositoryItemLookUpEdit lookup)
         {
-            //Dictionary<string, Guid> customer = new Dictionary<string, Guid>();
+            
             serviceCenter = storageService.GetSeviceCenter();
-            //var _customer = serviceCenter.Customers;
             var customer = new List<Customer>();
 
             foreach (var item in serviceCenter.Customers)
                 customer.Add(item);
             lookup.DataSource = customer;
-            lookup.DisplayMember = "Key";
-            lookup.ValueMember = "Value";
+            lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+            lookup.Columns.Add(new LookUpColumnInfo("Surname", "Surname"));
+            lookup.DisplayMember = "Surname";
+            lookup.ValueMember = "ID";
         }
         public void PopulateCar(RepositoryItemLookUpEdit lookup)
         {
             serviceCenter = storageService.GetSeviceCenter();
             var car = serviceCenter.Cars;
             lookup.DataSource = car;
+            lookup.Columns.Add(new LookUpColumnInfo("Brand", "Brand"));
+            lookup.Columns.Add(new LookUpColumnInfo("Model", "Model"));
             lookup.DisplayMember = "Brand";
-            lookup.ValueMember = "CarID";
+            lookup.ValueMember = "ID";
         }
         public void PopulateManager(RepositoryItemLookUpEdit lookup)
         {
             serviceCenter = storageService.GetSeviceCenter();
             var manager = serviceCenter.Managers;
             lookup.DataSource = manager;
+            lookup.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+            lookup.Columns.Add(new LookUpColumnInfo("Surname", "Surname"));
             lookup.DisplayMember = "Surname";
-            lookup.ValueMember = "ManagerID";
+            lookup.ValueMember = "ID";
         }
         
     }
