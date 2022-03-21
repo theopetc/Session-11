@@ -9,7 +9,7 @@ namespace CarServiceCenterLibrary
     public class ServiceTask
     {
         public Guid ID { get; set; }
-        public int Code { get; set; }//Dictionary enum 
+        public int Code { get; set; }
         public string Description { get; set; }
         public decimal Hours { get; set; }
         public ServiceTask()

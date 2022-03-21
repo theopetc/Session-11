@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using CarServiceCenterLibrary;
+using Services;
 
 namespace Session_11
 {
@@ -19,10 +20,7 @@ namespace Session_11
         TransactionLine _transactionLineBackup;
         Transaction _transaction;
         ServiceCenter _serviceCenter;
-        bool pressedNew = false;
-        State _state;
-
-
+        CalculateTotalPrice _calculateTotalPrice= new CalculateTotalPrice();
         //public NewTransactionLine()
         //{
         //    InitializeComponent();
@@ -44,22 +42,20 @@ namespace Session_11
         {
             SetCtrlServiceTask();
             SetCtrlEngineer();
-            if (_transactionLine == null)
-            {
-                pressedNew = true;
-                _transactionLine = new TransactionLine();
-                _transaction.TransactionLines.Add(_transactionLine);
-                bsTransactionLines.DataSource = _transactionLine;
-            }
-            bsTransactionLines.DataSource = _transactionLine;
+            _transactionLine = new TransactionLine();
+             bsTransactionLines.DataSource = _transactionLine;
+           
         }
         private void SetCtrlServiceTask()
         {
+            ctrlHours.Properties.DataSource = _serviceCenter.ServiceTasks;
             ctrlServiceTask.Properties.DataSource = _serviceCenter.ServiceTasks;
             ctrlServiceTask.Properties.Columns.Add(new LookUpColumnInfo("Description", "Description"));
             ctrlServiceTask.Properties.Columns.Add(new LookUpColumnInfo("Code", "Code"));
             ctrlServiceTask.Properties.Columns.Add(new LookUpColumnInfo("Hours", "Hours"));
             ctrlServiceTask.Properties.DisplayMember = "Description";
+            ctrlHours.Properties.DisplayMember = "Hours";
+            ctrlHours.Properties.ValueMember = "ID";
             ctrlServiceTask.Properties.ValueMember = "ID";
         }
         private void SetCtrlEngineer()
@@ -74,6 +70,7 @@ namespace Session_11
         {
             ctrlServiceTask.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "ServiceTaskID", true));
             ctrlEngineer.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "EngineerID", true));
+            ctrlHours.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "ServiceTaskID", true));
             txtPricePerHour.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "PRICE_PER_HOUR", true)); 
         }
         
@@ -85,8 +82,19 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            Save();
+            this.Close();
+        }
+        private void Save()
+        {
+            ServiceTask serviceTask = ctrlServiceTask.GetSelectedDataRow() as ServiceTask;
+            _transactionLine.Hours = serviceTask.Hours;
+            _calculateTotalPrice.SetPrice(_transactionLine);
             _transaction.TransactionLines.Add(_transactionLine);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

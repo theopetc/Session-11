@@ -186,6 +186,7 @@
             this.btnDeleteTask.StyleController = this.layoutControl1;
             this.btnDeleteTask.TabIndex = 8;
             this.btnDeleteTask.Text = "Delete Task Service";
+            this.btnDeleteTask.Click += new System.EventHandler(this.btnDeleteTask_Click);
             // 
             // btnAddTask
             // 
@@ -220,6 +221,7 @@
             this.colPrice});
             this.grvTransactionLines.GridControl = this.grdTransactionsLines;
             this.grvTransactionLines.Name = "grvTransactionLines";
+            this.grvTransactionLines.OptionsBehavior.Editable = false;
             // 
             // colServiceTask
             // 
@@ -268,7 +270,7 @@
             // colPricePerHour
             // 
             this.colPricePerHour.Caption = "Price Per Hour";
-            this.colPricePerHour.FieldName = "PricePerHour";
+            this.colPricePerHour.FieldName = "PRICE_PER_HOUR";
             this.colPricePerHour.Name = "colPricePerHour";
             this.colPricePerHour.Visible = true;
             this.colPricePerHour.VisibleIndex = 3;

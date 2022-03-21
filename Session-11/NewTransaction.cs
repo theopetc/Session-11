@@ -66,6 +66,7 @@ namespace Session_11
             grdTransactionsLines.DataSource = bsTransactionsLines;
             SetRepServiceTask();
             SetRepEngineer();
+            
 
 
             SetDataBindings();
@@ -73,15 +74,13 @@ namespace Session_11
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            storageService.SaveServiceCenter(_serviceCenter);
+            ((List<Transaction>)bsTransactions.DataSource).Add(_transaction);
+            //_serviceCenter.Transactions.Add(_transaction);
             DialogResult = DialogResult.OK;
         }
 
         private void Populate()
-        {   
-            SetCtrlManager();
-            SetCtrlCustomer();
-            SetCtrlCar();
+        {    
             if (_transaction == null)
             {
                 pressedNew = true;
@@ -90,6 +89,9 @@ namespace Session_11
                 bsTransactions.DataSource = _transaction;
             }
             bsTransactions.DataSource = _transaction;
+            SetCtrlManager();
+            SetCtrlCustomer();
+            SetCtrlCar();
         }
         private void SetCtrlManager()
         {
@@ -164,9 +166,15 @@ namespace Session_11
 
         private void btnAddTask_Click(object sender, EventArgs e)
         {
-            
             var editForm = openF.GetForm<NewTransactionLine>(_transaction, _serviceCenter);
             editForm.ShowDialog();
+            grvTransactionLines.RefreshData();
+        }
+
+        private void btnDeleteTask_Click(object sender, EventArgs e)
+        {
+            TransactionLine transactionLine = bsTransactionsLines.Current as TransactionLine;
+            bsTransactionsLines.Remove(transactionLine);
             grvTransactionLines.RefreshData();
         }
     }

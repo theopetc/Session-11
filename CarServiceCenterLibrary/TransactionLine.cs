@@ -13,12 +13,12 @@ namespace CarServiceCenterLibrary
         public Guid ServiceTaskID { get; set; }
         public Guid EngineerID { get; set; }
         public decimal Hours { get; set; }
-        public decimal PRICE_PER_HOUR { get; } = 44.5m;
+        public decimal PRICE_PER_HOUR { get; }
         public decimal Price { get; set; }
 
         public TransactionLine()
         {
-            
+            PRICE_PER_HOUR = 44.5m;
         }
     }
 }
