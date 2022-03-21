@@ -25,12 +25,12 @@ namespace Session_11
         {
             _state = state;
             _bindingSource = bindingSource;
-            _serviceTask = new ServiceTask
-            {
-                Code = serviceTask.Code,
-                Description = serviceTask.Description,
-                Hours = serviceTask.Hours
-            };
+            _serviceTask = serviceTask;
+            //{
+            //    Code = serviceTask.Code,
+            //    Description = serviceTask.Description,
+            //    Hours = serviceTask.Hours
+            //};
             InitializeComponent();
         }
 
