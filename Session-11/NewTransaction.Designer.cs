@@ -33,7 +33,6 @@
             this.ctrlManager = new DevExpress.XtraEditors.LookUpEdit();
             this.ctrlCar = new DevExpress.XtraEditors.LookUpEdit();
             this.ctrlCustomer = new DevExpress.XtraEditors.LookUpEdit();
-            this.bsTransactions = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -41,6 +40,13 @@
             this.btnAddTask = new DevExpress.XtraEditors.SimpleButton();
             this.grdTransactionsLines = new DevExpress.XtraGrid.GridControl();
             this.grvTransactionLines = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colServiceTask = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repServiceTask = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colEngineer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repEngineer = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colHours = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPricePerHour = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtTotalPrice = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -59,14 +65,17 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.bsTransactions = new System.Windows.Forms.BindingSource(this.components);
+            this.bsTransactionsLines = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionsLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repServiceTask)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEngineer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
@@ -85,6 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactionsLines)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -184,12 +195,16 @@
             this.btnAddTask.StyleController = this.layoutControl1;
             this.btnAddTask.TabIndex = 7;
             this.btnAddTask.Text = "Add Task Service...";
+            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
             // 
             // grdTransactionsLines
             // 
             this.grdTransactionsLines.Location = new System.Drawing.Point(12, 132);
             this.grdTransactionsLines.MainView = this.grvTransactionLines;
             this.grdTransactionsLines.Name = "grdTransactionsLines";
+            this.grdTransactionsLines.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repServiceTask,
+            this.repEngineer});
             this.grdTransactionsLines.Size = new System.Drawing.Size(839, 252);
             this.grdTransactionsLines.TabIndex = 6;
             this.grdTransactionsLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -197,8 +212,74 @@
             // 
             // grvTransactionLines
             // 
+            this.grvTransactionLines.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colServiceTask,
+            this.colEngineer,
+            this.colHours,
+            this.colPricePerHour,
+            this.colPrice});
             this.grvTransactionLines.GridControl = this.grdTransactionsLines;
             this.grvTransactionLines.Name = "grvTransactionLines";
+            // 
+            // colServiceTask
+            // 
+            this.colServiceTask.Caption = "Service Task";
+            this.colServiceTask.ColumnEdit = this.repServiceTask;
+            this.colServiceTask.FieldName = "ServiceTaskID";
+            this.colServiceTask.Name = "colServiceTask";
+            this.colServiceTask.Visible = true;
+            this.colServiceTask.VisibleIndex = 0;
+            // 
+            // repServiceTask
+            // 
+            this.repServiceTask.AutoHeight = false;
+            this.repServiceTask.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repServiceTask.DisplayMember = "Description";
+            this.repServiceTask.Name = "repServiceTask";
+            this.repServiceTask.ValueMember = "ID";
+            // 
+            // colEngineer
+            // 
+            this.colEngineer.Caption = "Engineer";
+            this.colEngineer.ColumnEdit = this.repEngineer;
+            this.colEngineer.FieldName = "EngineerID";
+            this.colEngineer.Name = "colEngineer";
+            this.colEngineer.Visible = true;
+            this.colEngineer.VisibleIndex = 1;
+            // 
+            // repEngineer
+            // 
+            this.repEngineer.AutoHeight = false;
+            this.repEngineer.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repEngineer.DisplayMember = "Surname";
+            this.repEngineer.Name = "repEngineer";
+            this.repEngineer.ValueMember = "ID";
+            // 
+            // colHours
+            // 
+            this.colHours.Caption = "Hours";
+            this.colHours.FieldName = "Hours";
+            this.colHours.Name = "colHours";
+            this.colHours.Visible = true;
+            this.colHours.VisibleIndex = 2;
+            // 
+            // colPricePerHour
+            // 
+            this.colPricePerHour.Caption = "Price Per Hour";
+            this.colPricePerHour.FieldName = "PricePerHour";
+            this.colPricePerHour.Name = "colPricePerHour";
+            this.colPricePerHour.Visible = true;
+            this.colPricePerHour.VisibleIndex = 3;
+            // 
+            // colPrice
+            // 
+            this.colPrice.Caption = "Price";
+            this.colPrice.FieldName = "Price";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.Visible = true;
+            this.colPrice.VisibleIndex = 4;
             // 
             // txtTotalPrice
             // 
@@ -386,9 +467,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctrlManager.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlCustomer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactionsLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactionLines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repServiceTask)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repEngineer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
@@ -407,6 +489,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactionsLines)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,5 +527,13 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private BindingSource bsTransactionsLines;
+        private DevExpress.XtraGrid.Columns.GridColumn colServiceTask;
+        private DevExpress.XtraGrid.Columns.GridColumn colEngineer;
+        private DevExpress.XtraGrid.Columns.GridColumn colHours;
+        private DevExpress.XtraGrid.Columns.GridColumn colPricePerHour;
+        private DevExpress.XtraGrid.Columns.GridColumn colPrice;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repServiceTask;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repEngineer;
     }
 }

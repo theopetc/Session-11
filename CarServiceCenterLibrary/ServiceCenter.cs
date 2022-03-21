@@ -12,6 +12,7 @@ namespace Session_11
         public List<Manager> Managers { get; set; }
         public List<Transaction> Transactions { get; set; }
         public List<Engineer> Engineers { get; set; }
+        public List<MonthlyLedger> MonthlyLedgers { get; set; }
 
         public ServiceCenter()
         {   
@@ -21,6 +22,7 @@ namespace Session_11
             ServiceTasks = new List<ServiceTask>();
             Managers = new List<Manager>();
             Transactions = new List<Transaction>();
+            MonthlyLedgers = new List<MonthlyLedger>();
         }
     }
 }

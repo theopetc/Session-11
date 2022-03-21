@@ -24,7 +24,7 @@ namespace Services
 
         private void SetPrice(TransactionLine transactionLine)
         {
-            transactionLine.Price = transactionLine.Hours * TransactionLine.PRICE_PER_HOUR;
+            transactionLine.Price = transactionLine.Hours * transactionLine.PRICE_PER_HOUR;
         }
     }
 }

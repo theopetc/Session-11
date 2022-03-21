@@ -170,6 +170,7 @@
             this.monthlyLedgerToolStripMenuItem.Name = "monthlyLedgerToolStripMenuItem";
             this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.monthlyLedgerToolStripMenuItem.Text = "Monthly Ledger";
+            this.monthlyLedgerToolStripMenuItem.Click += new System.EventHandler(this.monthlyLedgerToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 

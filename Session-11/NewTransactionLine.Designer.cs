@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtPrice = new DevExpress.XtraEditors.TextEdit();
+            this.txtPricePerHour = new DevExpress.XtraEditors.TextEdit();
+            this.txtHours = new DevExpress.XtraEditors.TextEdit();
+            this.ctrlEngineer = new DevExpress.XtraEditors.LookUpEdit();
+            this.ctrlServiceTask = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -47,13 +48,14 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bsTransactionLines = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPricePerHour.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHours.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlEngineer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlServiceTask.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -65,17 +67,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactionLines)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.btnSave);
-            this.layoutControl1.Controls.Add(this.textEdit3);
-            this.layoutControl1.Controls.Add(this.textEdit2);
-            this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Controls.Add(this.lookUpEdit2);
-            this.layoutControl1.Controls.Add(this.lookUpEdit1);
+            this.layoutControl1.Controls.Add(this.txtPrice);
+            this.layoutControl1.Controls.Add(this.txtPricePerHour);
+            this.layoutControl1.Controls.Add(this.txtHours);
+            this.layoutControl1.Controls.Add(this.ctrlEngineer);
+            this.layoutControl1.Controls.Add(this.ctrlServiceTask);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -103,52 +106,54 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             // 
-            // textEdit3
+            // txtPrice
             // 
-            this.textEdit3.Location = new System.Drawing.Point(103, 108);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.ReadOnly = true;
-            this.textEdit3.Size = new System.Drawing.Size(347, 20);
-            this.textEdit3.StyleController = this.layoutControl1;
-            this.textEdit3.TabIndex = 5;
+            this.txtPrice.Location = new System.Drawing.Point(103, 108);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Properties.ReadOnly = true;
+            this.txtPrice.Size = new System.Drawing.Size(347, 20);
+            this.txtPrice.StyleController = this.layoutControl1;
+            this.txtPrice.TabIndex = 5;
             // 
-            // textEdit2
+            // txtPricePerHour
             // 
-            this.textEdit2.Location = new System.Drawing.Point(103, 84);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.ReadOnly = true;
-            this.textEdit2.Size = new System.Drawing.Size(347, 20);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 4;
+            this.txtPricePerHour.EditValue = "";
+            this.txtPricePerHour.Location = new System.Drawing.Point(103, 84);
+            this.txtPricePerHour.Name = "txtPricePerHour";
+            this.txtPricePerHour.Properties.ReadOnly = true;
+            this.txtPricePerHour.Size = new System.Drawing.Size(347, 20);
+            this.txtPricePerHour.StyleController = this.layoutControl1;
+            this.txtPricePerHour.TabIndex = 4;
             // 
-            // textEdit1
+            // txtHours
             // 
-            this.textEdit1.Location = new System.Drawing.Point(103, 60);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.ReadOnly = true;
-            this.textEdit1.Size = new System.Drawing.Size(347, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 3;
+            this.txtHours.Location = new System.Drawing.Point(103, 60);
+            this.txtHours.Name = "txtHours";
+            this.txtHours.Properties.ReadOnly = true;
+            this.txtHours.Size = new System.Drawing.Size(347, 20);
+            this.txtHours.StyleController = this.layoutControl1;
+            this.txtHours.TabIndex = 3;
+            this.txtHours.EditValueChanged += new System.EventHandler(this.txtHours_EditValueChanged);
             // 
-            // lookUpEdit2
+            // ctrlEngineer
             // 
-            this.lookUpEdit2.Location = new System.Drawing.Point(103, 36);
-            this.lookUpEdit2.Name = "lookUpEdit2";
-            this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.ctrlEngineer.Location = new System.Drawing.Point(103, 36);
+            this.ctrlEngineer.Name = "ctrlEngineer";
+            this.ctrlEngineer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit2.Size = new System.Drawing.Size(347, 20);
-            this.lookUpEdit2.StyleController = this.layoutControl1;
-            this.lookUpEdit2.TabIndex = 2;
+            this.ctrlEngineer.Size = new System.Drawing.Size(347, 20);
+            this.ctrlEngineer.StyleController = this.layoutControl1;
+            this.ctrlEngineer.TabIndex = 2;
             // 
-            // lookUpEdit1
+            // ctrlServiceTask
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(103, 12);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.ctrlServiceTask.Location = new System.Drawing.Point(103, 12);
+            this.ctrlServiceTask.Name = "ctrlServiceTask";
+            this.ctrlServiceTask.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Size = new System.Drawing.Size(347, 20);
-            this.lookUpEdit1.StyleController = this.layoutControl1;
-            this.lookUpEdit1.TabIndex = 0;
+            this.ctrlServiceTask.Size = new System.Drawing.Size(347, 20);
+            this.ctrlServiceTask.StyleController = this.layoutControl1;
+            this.ctrlServiceTask.TabIndex = 0;
             // 
             // Root
             // 
@@ -179,7 +184,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.lookUpEdit1;
+            this.layoutControlItem1.Control = this.ctrlServiceTask;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(442, 24);
@@ -188,7 +193,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.lookUpEdit2;
+            this.layoutControlItem2.Control = this.ctrlEngineer;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(442, 24);
@@ -205,7 +210,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.textEdit1;
+            this.layoutControlItem3.Control = this.txtHours;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(442, 24);
@@ -214,7 +219,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.textEdit2;
+            this.layoutControlItem4.Control = this.txtPricePerHour;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(442, 24);
@@ -223,7 +228,7 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.textEdit3;
+            this.layoutControlItem5.Control = this.txtPrice;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(442, 310);
@@ -264,13 +269,14 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "NewTransactionLine";
             this.Text = "New TransactionLine";
+            this.Load += new System.EventHandler(this.NewTransactionLine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPricePerHour.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHours.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlEngineer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctrlServiceTask.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -282,6 +288,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactionLines)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,11 +296,11 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.TextEdit txtPrice;
+        private DevExpress.XtraEditors.TextEdit txtPricePerHour;
+        private DevExpress.XtraEditors.TextEdit txtHours;
+        private DevExpress.XtraEditors.LookUpEdit ctrlEngineer;
+        private DevExpress.XtraEditors.LookUpEdit ctrlServiceTask;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
@@ -307,5 +314,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
+        private BindingSource bsTransactionLines;
     }
 }

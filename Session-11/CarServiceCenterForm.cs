@@ -69,6 +69,11 @@ namespace Session_11
             _authService.LoginForm.Show();
             this.Close();
         }
+
+        private void monthlyLedgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openF.Open<MonthlyLedgerForm>();
+        }
     }
 
 }

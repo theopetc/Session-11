@@ -19,8 +19,9 @@ namespace Session_11
         State _state;
         Transaction _transaction;
         Transaction _transactionBackup;
-        BindingSource _bindingSource;
-        ServiceCenter serviceCenter;
+
+        ServiceCenter _serviceCenter;
+        OpenForm openF = new OpenForm();
         bool pressedNew = false;
 
 
@@ -29,15 +30,15 @@ namespace Session_11
         {
             InitializeComponent();
         }
-        public NewTransaction(ServiceCenter transaction)
+        public NewTransaction(ServiceCenter serviceCenter)
         { 
-            serviceCenter = transaction;
+            _serviceCenter = serviceCenter;
             InitializeComponent();
         }
-        public NewTransaction(ServiceCenter listOfTransactions, Transaction transaction)
+        public NewTransaction(ServiceCenter serviceCenter, Transaction transaction)
         {
             _transaction = transaction;
-            serviceCenter = listOfTransactions;
+            _serviceCenter = serviceCenter;
             InitializeComponent();
         }
 
@@ -47,8 +48,7 @@ namespace Session_11
             if (_transaction != null)
             {
                 _transactionBackup = new Transaction
-                {
-                    
+                {  
                     Date = _transaction.Date,
                     ID = _transaction.ID, 
                     CustomerID = _transaction.CustomerID,
@@ -58,20 +58,27 @@ namespace Session_11
                     TransactionLines = _transaction.TransactionLines
                 };
             }
+            
             Populate();
+            bsTransactions.DataSource = _serviceCenter.Transactions;
+            bsTransactionsLines.DataSource = bsTransactions;
+            bsTransactionsLines.DataMember = "TransactionLines";
+            grdTransactionsLines.DataSource = bsTransactionsLines;
+            SetRepServiceTask();
+            SetRepEngineer();
+
 
             SetDataBindings();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            storageService.SaveServiceCenter(serviceCenter);
+            storageService.SaveServiceCenter(_serviceCenter);
             DialogResult = DialogResult.OK;
         }
 
         private void Populate()
-        {
-            
+        {   
             SetCtrlManager();
             SetCtrlCustomer();
             SetCtrlCar();
@@ -79,14 +86,14 @@ namespace Session_11
             {
                 pressedNew = true;
                 _transaction = new Transaction();
-                serviceCenter.Transactions.Add(_transaction);
+                _serviceCenter.Transactions.Add(_transaction);
                 bsTransactions.DataSource = _transaction;
             }
             bsTransactions.DataSource = _transaction;
         }
         private void SetCtrlManager()
         {
-            ctrlManager.Properties.DataSource = serviceCenter.Managers;
+            ctrlManager.Properties.DataSource = _serviceCenter.Managers;
             ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("Name", "Name"));
             ctrlManager.Properties.Columns.Add(new LookUpColumnInfo("Surname", "Surname"));
             ctrlManager.Properties.DisplayMember = "Surname";
@@ -94,7 +101,7 @@ namespace Session_11
         }
         private void SetCtrlCustomer()
         {
-            ctrlCustomer.Properties.DataSource = serviceCenter.Customers;
+            ctrlCustomer.Properties.DataSource = _serviceCenter.Customers;
             ctrlCustomer.Properties.Columns.Add(new LookUpColumnInfo("Name", "Name"));
             ctrlCustomer.Properties.Columns.Add(new LookUpColumnInfo("Surname", "Surname"));
             ctrlCustomer.Properties.DisplayMember = "Surname";
@@ -102,7 +109,7 @@ namespace Session_11
         }
         private void SetCtrlCar()
         {
-            ctrlCar.Properties.DataSource = serviceCenter.Cars;
+            ctrlCar.Properties.DataSource = _serviceCenter.Cars;
             ctrlCar.Properties.Columns.Add(new LookUpColumnInfo("Brand", "Brand"));
             ctrlCar.Properties.Columns.Add(new LookUpColumnInfo("Model", "Model"));
             ctrlCar.Properties.DisplayMember = "Brand";
@@ -122,18 +129,44 @@ namespace Session_11
         {
             if (pressedNew)
             {
-                serviceCenter.Transactions.Remove(_transaction);
+                _serviceCenter.Transactions.Remove(_transaction);
                 this.DialogResult = DialogResult.Cancel;
             }
             else
             {
-                int index = serviceCenter.Transactions.IndexOf(_transaction);
+                int index = _serviceCenter.Transactions.IndexOf(_transaction);
 
-                serviceCenter.Transactions.RemoveAt(index);
-                serviceCenter.Transactions.Insert(index, _transactionBackup);
+                _serviceCenter.Transactions.RemoveAt(index);
+                _serviceCenter.Transactions.Insert(index, _transactionBackup);
 
                 this.DialogResult = DialogResult.Cancel;
             }
+        }
+        private void SetRepServiceTask()
+        {
+            
+            var serviceTask = _serviceCenter.ServiceTasks;
+            repServiceTask.DataSource = serviceTask;
+            repServiceTask.Columns.Add(new LookUpColumnInfo("Description", "Description"));
+            repServiceTask.Columns.Add(new LookUpColumnInfo("Code", "Code"));
+            repServiceTask.DisplayMember = "Description";
+            repServiceTask.ValueMember = "ID";
+        }
+        private void SetRepEngineer()
+        {
+            var engineer = _serviceCenter.Engineers;
+            repEngineer.DataSource = engineer;
+            repEngineer.Columns.Add(new LookUpColumnInfo("Name", "Name"));
+            repEngineer.Columns.Add(new LookUpColumnInfo("Surname", "Surname"));
+            repEngineer.DisplayMember = "Surname";
+            repEngineer.ValueMember = "ID";
+        }
+
+        private void btnAddTask_Click(object sender, EventArgs e)
+        {
+            
+            var editForm = openF.GetForm<NewTransactionLine>(_transaction, _serviceCenter);
+            editForm.ShowDialog();
         }
     }
 }

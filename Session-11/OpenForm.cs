@@ -19,7 +19,7 @@ namespace Session_11
     {
         ServiceCenter serviceCenter;
         public readonly StorageService storageService = new StorageService();
-        Customer _customer;
+        
         
         public OpenForm()
         {
