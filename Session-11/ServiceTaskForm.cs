@@ -28,7 +28,7 @@ namespace Session_11
         #region UI
         private void ServiceTaskForm_Load(object sender, EventArgs e)
         {
-            serviceCenter = storageService.GetSeviceCenter();
+            serviceCenter = storageService.GetSeviceCenter();                                    
             bsServiceTasks.DataSource = serviceCenter.ServiceTasks;
         }
 
@@ -59,7 +59,7 @@ namespace Session_11
         {
             var serviceTask = new ServiceTask();
             var editForm = openF.GetForm<ServiceTaskF>(State.New, serviceTask, bsServiceTasks);
-            serviceCenter.ServiceTasks = bsServiceTasks.DataSource as List<ServiceTask>;
+            serviceCenter.ServiceTasks = bsServiceTasks.DataSource as List<ServiceTask>;            
             storageService.SaveServiceCenter(serviceCenter);
             editForm.ShowDialog();
             grvServiceTasks.RefreshData();
