@@ -42,13 +42,13 @@
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTrasaction = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyLedgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelUsername = new DevExpress.XtraEditors.LabelControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.labelUsername = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -146,7 +146,7 @@
             // editServiceTask
             // 
             this.editServiceTask.Name = "editServiceTask";
-            this.editServiceTask.Size = new System.Drawing.Size(180, 22);
+            this.editServiceTask.Size = new System.Drawing.Size(103, 22);
             this.editServiceTask.Text = "Edit...";
             this.editServiceTask.Click += new System.EventHandler(this.editServiceTask_Click);
             // 
@@ -161,7 +161,7 @@
             // newTrasaction
             // 
             this.newTrasaction.Name = "newTrasaction";
-            this.newTrasaction.Size = new System.Drawing.Size(180, 22);
+            this.newTrasaction.Size = new System.Drawing.Size(103, 22);
             this.newTrasaction.Text = "Edit...";
             this.newTrasaction.Click += new System.EventHandler(this.newTrasaction_Click);
             // 
@@ -170,6 +170,13 @@
             this.monthlyLedgerToolStripMenuItem.Name = "monthlyLedgerToolStripMenuItem";
             this.monthlyLedgerToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.monthlyLedgerToolStripMenuItem.Text = "Monthly Ledger";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // layoutControl1
             // 
@@ -181,6 +188,15 @@
             this.layoutControl1.Size = new System.Drawing.Size(765, 345);
             this.layoutControl1.TabIndex = 1;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // labelUsername
+            // 
+            this.labelUsername.Location = new System.Drawing.Point(705, 12);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(48, 13);
+            this.labelUsername.StyleController = this.layoutControl1;
+            this.labelUsername.TabIndex = 4;
+            this.labelUsername.Text = "Username";
             // 
             // Root
             // 
@@ -202,15 +218,6 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(52, 308);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // labelUsername
-            // 
-            this.labelUsername.Location = new System.Drawing.Point(705, 12);
-            this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(48, 13);
-            this.labelUsername.StyleController = this.layoutControl1;
-            this.labelUsername.TabIndex = 4;
-            this.labelUsername.Text = "Username";
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.labelUsername;
@@ -228,13 +235,6 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(693, 325);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
             // CarServiceCenterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,7 +244,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "CarServiceCenterForm";
-            this.Text = "CarServiceCenter";
+            this.Text = "Car Service Center";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnFormClosed);
             this.Load += new System.EventHandler(this.CarServiceCenterForm_Load);
             this.menuStrip1.ResumeLayout(false);

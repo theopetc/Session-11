@@ -17,11 +17,12 @@ namespace Services
             Manager manager = new Manager();
             Engineer engineer = new Engineer();
             var engineers = serviceCenter.Engineers;
+            var managers = serviceCenter.Managers;
 
-            decimal expensesPerMonth = manager.SallaryPerMonth + engineers.Count * engineer.SallaryPerMonth;
+            decimal expensesPerMonth = managers.Count*manager.SallaryPerMonth + engineers.Count * engineer.SallaryPerMonth;
             return expensesPerMonth;
         }
-        public void IncomePerMonth() {
+        public decimal IncomePerMonth() {
             var storageService = new StorageService();
             var serviceCenter = storageService.GetSeviceCenter();
 
@@ -29,13 +30,13 @@ namespace Services
             foreach (var transaction in serviceCenter.Transactions)
             {
                 incomeList += transaction.TotalPrice;
-            }            
+            }
+            return incomeList;
         }
-        public void MonthlyIncome()
+        public decimal MonthlyIncome()
         {
-            var monthsToDate = Enumerable.Range(1, 12)
-                                .Select(m => new DateTime(DateTime.Today.Year, m, 1))
-                                .ToList();
+            decimal monthlyLedger = IncomePerMonth() - SalaryExpenses();
+            return monthlyLedger;
         }
 
 

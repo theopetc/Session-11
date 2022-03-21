@@ -267,7 +267,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 442);
             this.Controls.Add(this.layoutControl1);
-          
+            //this.Name = "ManagerEditForm";
             this.Text = "ManagerEditForm";
             this.Load += new System.EventHandler(this.ManagerEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

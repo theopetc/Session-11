@@ -35,7 +35,6 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.grdTransactions = new DevExpress.XtraGrid.GridControl();
-            this.bsTransactions = new System.Windows.Forms.BindingSource(this.components);
             this.grvTransactions = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,11 +51,11 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bsTransactions = new System.Windows.Forms.BindingSource(this.components);
             this.bsServiceCenter = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCar)).BeginInit();
@@ -68,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,10 +140,6 @@
             this.grdTransactions.TabIndex = 4;
             this.grdTransactions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvTransactions});
-            // 
-            // bsTransactions
-            // 
-            this.bsTransactions.DataSource = typeof(CarServiceCenterLibrary.Transaction);
             // 
             // grvTransactions
             // 
@@ -295,6 +291,10 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(439, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // bsTransactions
+            // 
+            this.bsTransactions.DataSource = typeof(CarServiceCenterLibrary.Transaction);
+            // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,12 +302,11 @@
             this.ClientSize = new System.Drawing.Size(860, 449);
             this.Controls.Add(this.layoutControl1);
             this.Name = "TransactionForm";
-            this.Text = "TransactionForm";
+            this.Text = "Transaction";
             this.Load += new System.EventHandler(this.TransactionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdTransactions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repCar)).EndInit();
@@ -319,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsServiceCenter)).EndInit();
             this.ResumeLayout(false);
 
