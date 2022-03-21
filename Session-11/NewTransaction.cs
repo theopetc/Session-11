@@ -78,8 +78,16 @@ namespace Session_11
         {
             //_transaction = 
             //((List<Transaction>)bsTransactions.DataSource).Add(_transactionBackup);
+
             calc.SetTotalPrice(_transactionBackup);
-            _serviceCenter.Transactions.Add(_transactionBackup); 
+            if(pressedNew)
+                _serviceCenter.Transactions.Add(_transactionBackup); 
+            else
+            {
+                var selectedItem = _serviceCenter.Transactions.FindIndex(x => x.ID == _transactionBackup.ID);
+                _serviceCenter.Transactions[selectedItem] = _transactionBackup;
+            }
+
             DialogResult = DialogResult.OK;
         }
 

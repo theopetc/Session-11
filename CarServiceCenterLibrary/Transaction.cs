@@ -21,6 +21,7 @@ namespace CarServiceCenterLibrary
         {            
             ID = Guid.NewGuid();
             Date = DateTime.Now;
+            TransactionLines = new List<TransactionLine>();
         }
         public Transaction(Guid customerID, Guid carID, Guid managerID, DateTime date)
         {   
