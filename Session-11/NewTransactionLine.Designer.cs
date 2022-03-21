@@ -32,9 +32,7 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.txtPricePerHour = new DevExpress.XtraEditors.TextEdit();
-            this.txtHours = new DevExpress.XtraEditors.TextEdit();
             this.ctrlEngineer = new DevExpress.XtraEditors.LookUpEdit();
             this.ctrlServiceTask = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -42,18 +40,14 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.bsTransactionLines = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPricePerHour.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHours.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlEngineer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlServiceTask.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -61,9 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
@@ -74,9 +66,7 @@
             // 
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.btnSave);
-            this.layoutControl1.Controls.Add(this.txtPrice);
             this.layoutControl1.Controls.Add(this.txtPricePerHour);
-            this.layoutControl1.Controls.Add(this.txtHours);
             this.layoutControl1.Controls.Add(this.ctrlEngineer);
             this.layoutControl1.Controls.Add(this.ctrlServiceTask);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -104,36 +94,18 @@
             this.btnSave.Size = new System.Drawing.Size(107, 22);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Save";
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(103, 108);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Properties.ReadOnly = true;
-            this.txtPrice.Size = new System.Drawing.Size(347, 20);
-            this.txtPrice.StyleController = this.layoutControl1;
-            this.txtPrice.TabIndex = 5;
+            this.btnSave.Text = "Add";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtPricePerHour
             // 
             this.txtPricePerHour.EditValue = "";
-            this.txtPricePerHour.Location = new System.Drawing.Point(103, 84);
+            this.txtPricePerHour.Location = new System.Drawing.Point(103, 60);
             this.txtPricePerHour.Name = "txtPricePerHour";
             this.txtPricePerHour.Properties.ReadOnly = true;
             this.txtPricePerHour.Size = new System.Drawing.Size(347, 20);
             this.txtPricePerHour.StyleController = this.layoutControl1;
             this.txtPricePerHour.TabIndex = 4;
-            // 
-            // txtHours
-            // 
-            this.txtHours.Location = new System.Drawing.Point(103, 60);
-            this.txtHours.Name = "txtHours";
-            this.txtHours.Properties.ReadOnly = true;
-            this.txtHours.Size = new System.Drawing.Size(347, 20);
-            this.txtHours.StyleController = this.layoutControl1;
-            this.txtHours.TabIndex = 3;
-            this.txtHours.EditValueChanged += new System.EventHandler(this.txtHours_EditValueChanged);
             // 
             // ctrlEngineer
             // 
@@ -164,9 +136,7 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.emptySpaceItem2,
-            this.layoutControlItem3,
             this.layoutControlItem4,
-            this.layoutControlItem5,
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.emptySpaceItem3});
@@ -208,32 +178,14 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(316, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.txtHours;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(442, 24);
-            this.layoutControlItem3.Text = "Hours";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(79, 13);
-            // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.txtPricePerHour;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(442, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(442, 358);
             this.layoutControlItem4.Text = "Price Per Hour";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(79, 13);
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.txtPrice;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(442, 310);
-            this.layoutControlItem5.Text = "Price";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem6
             // 
@@ -272,9 +224,7 @@
             this.Load += new System.EventHandler(this.NewTransactionLine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPricePerHour.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHours.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlEngineer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrlServiceTask.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -282,9 +232,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
@@ -296,9 +244,7 @@
         #endregion
 
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.TextEdit txtPrice;
         private DevExpress.XtraEditors.TextEdit txtPricePerHour;
-        private DevExpress.XtraEditors.TextEdit txtHours;
         private DevExpress.XtraEditors.LookUpEdit ctrlEngineer;
         private DevExpress.XtraEditors.LookUpEdit ctrlServiceTask;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
@@ -306,9 +252,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;

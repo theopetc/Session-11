@@ -167,6 +167,7 @@ namespace Session_11
             
             var editForm = openF.GetForm<NewTransactionLine>(_transaction, _serviceCenter);
             editForm.ShowDialog();
+            grvTransactionLines.RefreshData();
         }
     }
 }

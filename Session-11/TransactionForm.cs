@@ -73,9 +73,9 @@ namespace Session_11
         }
         private void EditData()
         {
-            var listOfTransactions = bsServiceCenter.Current as ServiceCenter;
-            var transactions = bsTransactions.Current as Transaction;
-            NewTransaction editForm = new NewTransaction(listOfTransactions, transactions);
+            var serviceCenter = bsServiceCenter.Current as ServiceCenter;
+            var transaction = bsTransactions.Current as Transaction;
+            NewTransaction editForm = new NewTransaction(serviceCenter, transaction);
             editForm.ShowDialog();
             grvTransactions.RefreshData();
         }

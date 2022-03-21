@@ -20,6 +20,9 @@ namespace Session_11
         Transaction _transaction;
         ServiceCenter _serviceCenter;
         bool pressedNew = false;
+        State _state;
+
+
         //public NewTransactionLine()
         //{
         //    InitializeComponent();
@@ -55,6 +58,7 @@ namespace Session_11
             ctrlServiceTask.Properties.DataSource = _serviceCenter.ServiceTasks;
             ctrlServiceTask.Properties.Columns.Add(new LookUpColumnInfo("Description", "Description"));
             ctrlServiceTask.Properties.Columns.Add(new LookUpColumnInfo("Code", "Code"));
+            ctrlServiceTask.Properties.Columns.Add(new LookUpColumnInfo("Hours", "Hours"));
             ctrlServiceTask.Properties.DisplayMember = "Description";
             ctrlServiceTask.Properties.ValueMember = "ID";
         }
@@ -70,14 +74,20 @@ namespace Session_11
         {
             ctrlServiceTask.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "ServiceTaskID", true));
             ctrlEngineer.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "EngineerID", true));
-            txtHours.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "Hours", true));
-            txtPricePerHour.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "PRICE_PER_HOUR", true));
-            txtPrice.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "Price", true));
+            txtPricePerHour.DataBindings.Add(new Binding("EditValue", bsTransactionLines, "PRICE_PER_HOUR", true)); 
         }
+        
 
         private void txtHours_EditValueChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            
+            _transaction.TransactionLines.Add(_transactionLine);
+            this.Close();
         }
     }
 }
