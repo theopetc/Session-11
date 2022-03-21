@@ -17,7 +17,8 @@ namespace Session_11
     public partial class NewTransaction : DevExpress.XtraEditors.XtraForm
     {
         State _state;
-        Transaction _transaction, _transactionBackup;
+        Transaction _transaction = new Transaction();
+        Transaction _transactionBackup;
         ServiceCenter _serviceCenter;
         OpenForm openF = new OpenForm();
         bool pressedNew = false;
@@ -34,8 +35,9 @@ namespace Session_11
             _serviceCenter = serviceCenter;
             InitializeComponent();
         }
-        public NewTransaction(ServiceCenter serviceCenter, Transaction transaction)
+        public NewTransaction(ServiceCenter serviceCenter, Transaction transaction, State state)
         {
+            _state = state;
             _transaction = transaction;
             _serviceCenter = serviceCenter;
             InitializeComponent();
@@ -44,7 +46,7 @@ namespace Session_11
 
         private void NewTransanction_Load(object sender, EventArgs e)
         {
-            if (_transaction == null)
+            if (_state == State.New)
             {
                 pressedNew = true;
                 _transactionBackup = new Transaction();          
@@ -171,7 +173,7 @@ namespace Session_11
 
         private void btnAddTask_Click(object sender, EventArgs e)
         {
-            var editForm = openF.GetForm<NewTransactionLine>(_transaction, _serviceCenter);
+            var editForm = openF.GetForm<NewTransactionLine>(_transactionBackup, _serviceCenter);
             editForm.ShowDialog();
             grvTransactionLines.RefreshData();
         }

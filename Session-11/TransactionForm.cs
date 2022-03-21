@@ -55,7 +55,7 @@ namespace Session_11
         {
             var serviceCenter = bsServiceCenter.Current as ServiceCenter;
             var transaction =new Transaction();
-            var editForm = new NewTransaction(serviceCenter, transaction);
+            var editForm = new NewTransaction(serviceCenter, transaction, State.New);
 
             editForm.ShowDialog();
             grvTransactions.RefreshData();
@@ -76,7 +76,7 @@ namespace Session_11
         {
             var serviceCenter = bsServiceCenter.Current as ServiceCenter;
             var transaction = bsTransactions.Current as Transaction;
-            NewTransaction editForm = new NewTransaction(serviceCenter, transaction);
+            NewTransaction editForm = new NewTransaction(serviceCenter, transaction, State.Edit);
             editForm.ShowDialog();
             grvTransactions.RefreshData();
         }
