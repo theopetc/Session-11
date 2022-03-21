@@ -17,12 +17,11 @@ namespace Session_11
     public partial class NewTransaction : DevExpress.XtraEditors.XtraForm
     {
         State _state;
-        Transaction _transaction;
-        Transaction _transactionBackup;
-
+        Transaction _transaction, _transactionBackup;
         ServiceCenter _serviceCenter;
         OpenForm openF = new OpenForm();
         bool pressedNew = false;
+        CalculateTotalPrice calc = new CalculateTotalPrice();
 
 
         public readonly StorageService storageService = new StorageService();
@@ -45,12 +44,17 @@ namespace Session_11
 
         private void NewTransanction_Load(object sender, EventArgs e)
         {
-            if (_transaction != null)
+            if (_transaction == null)
+            {
+                pressedNew = true;
+                _transactionBackup = new Transaction();          
+            }
+            else
             {
                 _transactionBackup = new Transaction
-                {  
+                {
                     Date = _transaction.Date,
-                    ID = _transaction.ID, 
+                    ID = _transaction.ID,
                     CustomerID = _transaction.CustomerID,
                     CarID = _transaction.CarID,
                     ManagerID = _transaction.ManagerID,
@@ -58,37 +62,29 @@ namespace Session_11
                     TransactionLines = _transaction.TransactionLines
                 };
             }
-            
+            bsTransactions.DataSource = _transactionBackup;
+
             Populate();
-            bsTransactions.DataSource = _serviceCenter.Transactions;
+            //bsTransactions.DataSource = _serviceCenter.Transactions;
             bsTransactionsLines.DataSource = bsTransactions;
             bsTransactionsLines.DataMember = "TransactionLines";
             grdTransactionsLines.DataSource = bsTransactionsLines;
             SetRepServiceTask();
             SetRepEngineer();
-            
-
-
             SetDataBindings();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ((List<Transaction>)bsTransactions.DataSource).Add(_transaction);
-            //_serviceCenter.Transactions.Add(_transaction);
+            //_transaction = 
+            //((List<Transaction>)bsTransactions.DataSource).Add(_transactionBackup);
+            calc.SetTotalPrice(_transactionBackup);
+            _serviceCenter.Transactions.Add(_transactionBackup); 
             DialogResult = DialogResult.OK;
         }
 
         private void Populate()
-        {    
-            if (_transaction == null)
-            {
-                pressedNew = true;
-                _transaction = new Transaction();
-                _serviceCenter.Transactions.Add(_transaction);
-                bsTransactions.DataSource = _transaction;
-            }
-            bsTransactions.DataSource = _transaction;
+        {
             SetCtrlManager();
             SetCtrlCustomer();
             SetCtrlCar();
@@ -129,20 +125,21 @@ namespace Session_11
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (pressedNew)
-            {
-                _serviceCenter.Transactions.Remove(_transaction);
-                this.DialogResult = DialogResult.Cancel;
-            }
-            else
-            {
-                int index = _serviceCenter.Transactions.IndexOf(_transaction);
+            this.Close();
+            //if (pressedNew)
+            //{
+            //    _serviceCenter.Transactions.Remove(_transaction);
+            //    this.DialogResult = DialogResult.Cancel;
+            //}
+            //else
+            //{
+            //    int index = _serviceCenter.Transactions.IndexOf(_transaction);
 
-                _serviceCenter.Transactions.RemoveAt(index);
-                _serviceCenter.Transactions.Insert(index, _transactionBackup);
+            //    _serviceCenter.Transactions.RemoveAt(index);
+            //    _serviceCenter.Transactions.Insert(index, _transactionBackup);
 
-                this.DialogResult = DialogResult.Cancel;
-            }
+            //    this.DialogResult = DialogResult.Cancel;
+            //}
         }
         private void SetRepServiceTask()
         {

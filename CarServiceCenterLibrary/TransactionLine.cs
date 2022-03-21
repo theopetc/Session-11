@@ -18,6 +18,7 @@ namespace CarServiceCenterLibrary
 
         public TransactionLine()
         {
+            ID = Guid.NewGuid();
             PRICE_PER_HOUR = 44.5m;
         }
     }
