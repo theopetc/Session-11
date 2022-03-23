@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "fbTNMeMwX6XLln+YI+Uo1Fj+Ef32zh45yhFQCu8a1d3lFXFHMcuhg7N9bLQFaFXljetiHmV6SO6hGu1lJ25/Qw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Iliana\\source\\repos\\Coding-School-2022\\Session-14\\CarServiceCenterLibrary\\CarServiceCenterLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Iliana\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
